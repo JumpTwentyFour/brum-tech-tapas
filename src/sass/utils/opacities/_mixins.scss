@@ -1,0 +1,25 @@
+/* OPACITY MIXINS ============================================================================= */
+
+@mixin opacity() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $opacity in $opacities {
+      @if $size == 'xl' {
+        .opacity-#{$name} {
+          opacity: $opacity;
+        }
+        @include placeholder(opacity-#{$name}) {
+          opacity: $opacity;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-opacity-#{$name} {
+            opacity: $opacity;
+          }
+        }
+        @include placeholder(#{$size}-opacity-#{$name}) {
+          opacity: $opacity;
+        }
+      }
+    }
+  }
+}

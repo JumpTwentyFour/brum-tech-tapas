@@ -1,0 +1,25 @@
+/* BG POSITION MIXINS ============================================================================= */
+
+@mixin bgPosition() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $bgPosition in $bgPositions {
+      @if $size == 'xl' {
+        .bg-#{$name} {
+          background-position: $bgPosition;
+        }
+        @include placeholder(bg-#{$name}) {
+          background-position: $bgPosition;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-bg-#{$name} {
+            background-position: $bgPosition;
+          }
+        }
+        @include placeholder(#{$size}-bg-#{$name}) {
+          background-position: $bgPosition;
+        }
+      }
+    }
+  }
+}

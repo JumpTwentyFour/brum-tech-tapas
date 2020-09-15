@@ -1,0 +1,47 @@
+/* BORDER STYLES MIXINS ============================================================================= */
+
+@mixin borderStyles() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $borderStyle in $borderStyles {
+      @each $pos, $borderPosition in $borderStylePositions {
+        @if $size == 'xl' {
+          @if $borderPosition != 'all' {
+            .border-#{$borderPosition}-#{$borderStyle} {
+              border-#{$pos}-style: $borderStyle;
+            }
+            @include placeholder(border-#{$borderPosition}-#{$borderStyle}) {
+              border-#{$pos}-style: $borderStyle;
+            }
+          } @else {
+            .border-#{$borderStyle} {
+              border-style: $borderStyle;
+            }
+            @include placeholder(border-#{$borderStyle}) {
+              border-style: $borderStyle;
+            }
+          }
+        } @else {
+          @if $borderPosition != 'all' {
+            @include mq($size) {
+              .#{$size}-border-#{$borderPosition}-#{$borderStyle} {
+                border-#{$pos}-style: $borderStyle;
+              }
+            }
+            @include placeholder(#{$size}-border-#{$borderPosition}-#{$borderStyle}) {
+              border-#{$pos}-style: $borderStyle;
+            }
+          } @else {
+            @include mq($size) {
+              .#{$size}-border-#{$borderStyle} {
+                border-style: $borderStyle;
+              }
+            }
+            @include placeholder(#{$size}-border-#{$borderStyle}) {
+              border-style: $borderStyle;
+            }
+          }
+        }
+      }
+    }
+  }
+}

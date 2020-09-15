@@ -1,0 +1,25 @@
+/* CURSOR MIXINS ============================================================================= */
+
+@mixin cursorTypes() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $cursor in $cursors {
+      @if $size == 'xl' {
+        .cursor-#{$name} {
+          cursor: $cursor;
+        }
+        @include placeholder(cursor-#{$name}) {
+          cursor: $cursor;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-cursor-#{$name} {
+            cursor: $cursor;
+          }
+        }
+        @include placeholder(#{$size}-cursor-#{$name}) {
+          cursor: $cursor;
+        }
+      }
+    }
+  }
+}

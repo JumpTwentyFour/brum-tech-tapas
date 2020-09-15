@@ -1,0 +1,25 @@
+/* USER SELECT MIXINS ============================================================================= */
+
+@mixin userSelect() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $userSelect in $userSelects {
+      @if $size == 'xl' {
+        .user-select-#{$name} {
+          user-select: $userSelect;
+        }
+        @include placeholder(user-select-#{$name}) {
+          user-select: $userSelect;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-user-select-#{$name} {
+            user-select: $userSelect;
+          }
+        }
+        @include placeholder(#{$size}-user-select-#{$name}) {
+          user-select: $userSelect;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+/* TEXT TRANSFORM MIXINS ============================================================================= */
+
+@mixin textTransform() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $transform in $textTransform {
+      @if $size == 'xl' {
+        .#{$name} {
+          text-transform: $transform;
+        }
+        @include placeholder(#{$name}) {
+          text-transform: $transform;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-#{$name} {
+            text-transform: $transform;
+          }
+        }
+        @include placeholder(#{$size}-#{$name}) {
+          text-transform: $transform;
+        }
+      }
+    }
+  }
+}

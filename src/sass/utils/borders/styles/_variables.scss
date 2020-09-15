@@ -1,0 +1,17 @@
+$borderStyles : (
+  double: double,
+  solid: solid,
+  dashed: dashed,
+  dotted: dotted,
+  none: none,
+  hidden: hidden,
+  inherit: inherit,
+);
+
+$borderStylePositions : (
+  top: top,
+  bottom: bottom,
+  right: right,
+  left: left,
+  all: all
+);

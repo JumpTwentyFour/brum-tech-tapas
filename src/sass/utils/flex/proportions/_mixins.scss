@@ -1,0 +1,91 @@
+@mixin grow() {
+  @each $name, $proportion in $proportions {
+    @if ($proportion == 1) {
+      @each $size, $breakpoint in $breakpoints {
+        @if $size == 'xl' {
+          .grow-#{$proportion} {
+            flex-grow: 1;
+          }
+          @include placeholder(grow-#{$proportion}) {
+            flex-grow: 1;
+          }
+        } @else {
+          @include mq($size) {
+            .#{$size}-grow-#{$proportion} {
+              flex-grow: 1;
+            }
+          }
+          @include placeholder(#{$size}-grow-#{$proportion}) {
+            flex-grow: 1;
+          }
+        }
+      }
+    } @else if ($proportion == 0) {
+      @each $size, $breakpoint in $breakpoints {
+        @if $size == 'xl' {
+          .grow-#{$proportion} {
+            flex-grow: 0;
+          }
+          @include placeholder(grow-#{$proportion}) {
+            flex-grow: 0;
+          }
+        } @else {
+          @include mq($size) {
+            .#{$size}-grow-#{$proportion} {
+              flex-grow: 0;
+            }
+          }
+          @include placeholder(#{$size}-grow-#{$proportion}) {
+            flex-grow: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin shrink() {
+  @each $name, $proportion in $proportions {
+    @if ($proportion == 1) {
+      @each $size, $breakpoint in $breakpoints {
+        @if $size == 'xl' {
+          .shrink-#{$proportion} {
+            flex-shrink: 1;
+          }
+          @include placeholder(shrink-#{$proportion}) {
+            flex-shrink: 1;
+          }
+        } @else {
+          @include mq($size) {
+            .#{$size}-shrink-#{$proportion} {
+              flex-shrink: 1;
+            }
+          }
+          @include placeholder(#{$size}-shrink-#{$proportion}) {
+            flex-shrink: 1;
+          }
+        }
+      }
+    } @else if ($proportion == 0) {
+      @each $size, $breakpoint in $breakpoints {
+        @if $size == 'xl' {
+          .shrink-#{$proportion} {
+            flex-shrink: 0;
+          }
+          @include placeholder(shrink-#{$proportion}) {
+            flex-shrink: 0;
+          }
+        } @else {
+          @include mq($size) {
+            .#{$size}-shrink-#{$proportion} {
+              flex-shrink: 0;
+            }
+          }
+          @include placeholder(#{$size}-shrink-#{$proportion}) {
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+  }
+}

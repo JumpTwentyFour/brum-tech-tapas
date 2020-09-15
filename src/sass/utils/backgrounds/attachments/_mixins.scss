@@ -1,0 +1,25 @@
+/* BG ATTACHMENT MIXINS ============================================================================= */
+
+@mixin bgAttachment() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $bgAttachment in $bgAttachments {
+      @if $size == 'xl' {
+        .bg-#{$name} {
+          background-attachment: $bgAttachment;
+        }
+        @include placeholder(bg-#{$name}) {
+          background-attachment: $bgAttachment;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-bg-#{$name} {
+            background-attachment: $bgAttachment;
+          }
+        }
+        @include placeholder(#{$size}-bg-#{$name}) {
+          background-attachment: $bgAttachment;
+        }
+      }
+    }
+  }
+}

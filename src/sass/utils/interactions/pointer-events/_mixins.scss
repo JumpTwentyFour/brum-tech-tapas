@@ -1,0 +1,22 @@
+/* POINTER EVENTS MIXINS ============================================================================= */
+
+@mixin pointerEvents() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $pointerEvent in $pointerEvents {
+      @if $size == 'xl' {
+        .pointer-#{$name} {
+          pointer-events: $pointerEvent;
+        }
+        @include placeholder(pointer-#{$name}) {
+          pointer-events: $pointerEvent;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-pointer-#{$name} {
+            pointer-events: $pointerEvent;
+          }
+        }
+      }
+    }
+  }
+}

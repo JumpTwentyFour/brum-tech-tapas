@@ -1,0 +1,59 @@
+/* FONT SIZE MIXINS ============================================================================= */
+
+$rem-base-font: 16px !default;
+
+// This mixing returns a rem and px value for a given property
+@mixin rem2px($property, $sizeValue: 1.6) {
+  #{$property}: ($sizeValue * 10) + px;
+  #{$property}: $sizeValue + rem;
+}
+
+@function lineHeightRule($percentage) {
+  @return $percentage / 100;
+}
+
+@mixin lineHeightRule($percentage){
+  line-height: lineHeightRule($percentage);
+}
+
+@mixin fontSizes() {
+  $sizes: map-keys($breakpoints);
+  $golden-rule: map_get($fontStyles, golden-rule);
+  @each $name, $fontStyle in $fontStyles {
+    @if $name != 'golden-rule' {
+      .#{$name} {
+        @each $size, $mq in $fontStyle {
+          @if $size == 'xl' {
+            @each $selector, $prop in $mq {
+              @if $selector == 'font-size' {
+                @include rem2px(font-size, $prop);
+              }
+              @if $selector == 'line-height-px' {
+                line-height: $prop;
+              } @else if $selector == 'line-height-rule' {
+                @include lineHeightRule($prop);
+              } @else {
+                @include lineHeightRule($golden-rule);
+              }
+            }
+          } @else if $size != 'xl' {
+            @include mq($size) {
+              @each $selector, $prop in $mq {
+                @if $selector == 'font-size' {
+                  @include rem2px(font-size, $prop);
+                }
+                @if $selector == 'line-height-px' {
+                  line-height: $prop;
+                } @else if $selector == 'line-height-rule' {
+                  @include lineHeightRule($prop);
+                } @else {
+                  @include lineHeightRule($golden-rule);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

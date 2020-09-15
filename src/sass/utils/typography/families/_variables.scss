@@ -1,0 +1,26 @@
+$fontFamilies: (
+  sofia-reg: (
+    font-family: 'sofia-pro'#{','} sans-serif,
+    font-style: normal,
+    font-weight: 400,
+    font-display: swap
+  ),
+  sofia-med: (
+    font-family: 'sofia-pro'#{','} sans-serif,
+    font-style: normal,
+    font-weight: 500,
+    font-display: swap
+  ),
+  sofia-semi: (
+    font-family: 'sofia-pro'#{','} sans-serif,
+    font-style: normal,
+    font-weight: 600,
+    font-display: swap
+  ),
+  sofia-bold: (
+    font-family: 'sofia-pro'#{','} sans-serif,
+    font-style: normal,
+    font-weight: 700,
+    font-display: swap
+  ),
+);
