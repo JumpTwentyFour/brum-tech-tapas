@@ -1,0 +1,25 @@
+/* FLOW MIXINS ============================================================================= */
+
+@mixin flow() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $type in $flow {
+      @if $size == 'xl' {
+        .flow-#{$name} {
+          grid-auto-flow: $type;
+        }
+        @include placeholder(flow-#{$name}) {
+          grid-auto-flow: $type;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-flow-#{$name} {
+            grid-auto-flow: $type;
+          }
+        }
+        @include placeholder(#{$size}-flow-#{$name}) {
+          grid-auto-flow: $type;
+        }
+      }
+    }
+  }
+}

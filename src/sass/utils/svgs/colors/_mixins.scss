@@ -1,0 +1,60 @@
+/* SVG COLOUR MIXINS ============================================================================= */
+
+@mixin svgColor($type) {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $color in $colors {
+      @if $size == 'xl' {
+        .#{$type}-#{$name} {
+          #{$type}: $color;
+        }
+        @include placeholder(#{$type}-#{$name}) {
+          #{$type}: $color;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-#{$type}-#{$name} {
+            #{$type}: $color;
+          }
+        }
+        @include placeholder(#{$size}-#{$type}-#{$name}) {
+          #{$type}: $color;
+        }
+      }
+    }
+  }
+}
+
+@mixin svgColorRgba($type) {
+  $rgba: 10;
+  @for $i from 0 through $rgba {
+    @each $size, $breakpoint in $breakpoints {
+      @each $name, $color in $colors {
+        @if $size == 'xl' {
+          .#{$type}-#{$name}-#{$i} {
+            $rgba: $i / 10;
+            #{$type}: rgba($color, $rgba);
+            $rgba: $i * 10;
+          }
+          @include placeholder(#{$type}-#{$name}-#{$i}) {
+            $rgba: $i / 10;
+            #{$type}: rgba($color, $rgba);
+            $rgba: $i * 10;
+          }
+        } @else {
+          @include mq($size) {
+            .#{$size}-#{$type}-#{$name}-#{$i} {
+              $rgba: $i / 10;
+              #{$type}: rgba($color, $rgba);
+              $rgba: $i * 10;
+            }
+          }
+          @include placeholder(#{$size}-#{$type}-#{$name}-#{$i}) {
+            $rgba: $i / 10;
+            #{$type}: rgba($color, $rgba);
+            $rgba: $i * 10;
+          }
+        }
+      }
+    }
+  }
+}

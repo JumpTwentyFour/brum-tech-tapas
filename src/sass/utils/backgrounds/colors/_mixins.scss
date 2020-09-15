@@ -1,0 +1,89 @@
+/* BG COLOUR MIXINS ============================================================================= */
+
+@mixin bgColor() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $color in $colors {
+      @if $size == 'xl' {
+        .bg-#{$name} {
+          background-color: $color;
+        }
+        @include placeholder(bg-#{$name}) {
+          background-color: $color;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-bg-#{$name} {
+            background-color: $color;
+          }
+        }
+        @include placeholder(#{$size}-bg-#{$name}) {
+          background-color: $color;
+        }
+      }
+    }
+    @if $size == 'xl' {
+      .bg-inherit {
+        background-color: inherit;
+      }
+      @include placeholder(bg-inherit) {
+        background-color: inherit;
+      }
+      .bg-transparent {
+        background-color: transparent;
+      }
+      @include placeholder(bg-transparent) {
+        background-color: transparent;
+      }
+    } @else {
+      @include mq($size) {
+        .#{$size}-bg-inherit {
+          background-color: inherit;
+        }
+        .#{$size}-bg-transparent {
+          background-color: transparent;
+        }
+      }
+      @include placeholder(#{$size}-bg-inherit) {
+        background-color: inherit;
+      }
+      @include placeholder(#{$size}-bg-transparent) {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+@mixin bgRgba() {
+  $rgba: 10;
+  @for $i from 0 through $rgba {
+    @each $size, $breakpoint in $breakpoints {
+      @each $name, $color in $colors {
+        @if $size == 'xl' {
+          .bg-#{$name}-#{$i} {
+            $rgba: $i / 10;
+            background-color: rgba($color, $rgba);
+            $rgba: $i * 10;
+          }
+          @include placeholder(bg-#{$name}-#{$i}) {
+            $rgba: $i / 10;
+            background-color: rgba($color, $rgba);
+            $rgba: $i * 10;
+          }
+        } @else {
+          @include mq($size) {
+            .#{$size}-bg-#{$name}-#{$i} {
+              $rgba: $i / 10;
+              background-color: rgba($color, $rgba);
+              $rgba: $i * 10;
+            }
+          }
+          @include placeholder(#{$size}-bg-#{$name}-#{$i}) {
+            $rgba: $i / 10;
+            background-color: rgba($color, $rgba);
+            $rgba: $i * 10;
+          }
+        }
+      }
+    }
+  }
+}

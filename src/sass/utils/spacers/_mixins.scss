@@ -1,0 +1,45 @@
+/* SPACer MIXINS ============================================================================= */
+
+@mixin spacer($el, $pos: null) {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $spacer in $spacers {
+      @if $size == 'xl' {
+        @if ($pos == null) {
+          .#{$el}-#{$name} {
+            #{$el}: $spacer;
+          }
+          @include placeholder(#{$el}-#{$name}) {
+            #{$el}: $spacer;
+          }
+        } @else {
+          .#{$el}-#{$pos}-#{$name} {
+            #{$el}-#{$pos}: $spacer;
+          }
+          @include placeholder(#{$el}-#{$pos}-#{$name}) {
+            #{$el}-#{$pos}: $spacer;
+          }
+        }
+      } @else {
+        @if ($pos == null) {
+          @include mq($size) {
+            .#{$size}-#{$el}-#{$name} {
+              #{$el}: $spacer;
+            }
+          }
+          @include placeholder(#{$size}-#{$el}-#{$name}) {
+            #{$el}: $spacer;
+          }
+        } @else {
+          @include mq($size) {
+            .#{$size}-#{$el}-#{$pos}-#{$name} {
+              #{$el}-#{$pos}: $spacer;
+            }
+          }
+          @include placeholder(#{$size}-#{$el}-#{$pos}-#{$name}) {
+            #{$el}-#{$pos}: $spacer;
+          }
+        }
+      }
+    }
+  }
+}

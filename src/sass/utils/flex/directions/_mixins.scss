@@ -1,0 +1,25 @@
+/* DIRECTION MIXINS ============================================================================= */
+
+@mixin direction() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $direction in $directions {
+      @if $size == 'xl' {
+        .flex-#{$name} {
+          flex-direction: $direction;
+        }
+        @include placeholder(flex-#{$name}) {
+          flex-direction: $direction;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-flex-#{$name} {
+            flex-direction: $direction;
+          }
+        }
+        @include placeholder(#{$size}-flex-#{$name}) {
+          flex-direction: $direction;
+        }
+      }
+    }
+  }
+}

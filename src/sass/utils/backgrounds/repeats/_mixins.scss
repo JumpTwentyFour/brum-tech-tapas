@@ -1,0 +1,25 @@
+/* BG REPEAT MIXINS ============================================================================= */
+
+@mixin bgRepeat() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $bgRepeat in $bgRepeats {
+      @if $size == 'xl' {
+        .bg-#{$name} {
+          background-repeat: $bgRepeat;
+        }
+        @include placeholder(bg-#{$name}) {
+          background-repeat: $bgRepeat;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-bg-#{$name} {
+            background-repeat: $bgRepeat;
+          }
+        }
+        @include placeholder(#{$size}-bg-#{$name}) {
+          background-repeat: $bgRepeat;
+        }
+      }
+    }
+  }
+}

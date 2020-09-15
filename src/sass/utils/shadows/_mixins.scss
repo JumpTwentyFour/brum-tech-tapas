@@ -1,0 +1,25 @@
+/* BOX SHADOW MIXINS ============================================================================= */
+
+@mixin shadow() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $shadow in $shadows {
+      @if $size == 'xl' {
+        .shadow-#{$name} {
+          box-shadow: $shadow;
+        }
+        @include placeholder(shadow-#{$name}) {
+          box-shadow: $shadow;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-shadow-#{$name} {
+            box-shadow: $shadow;
+          }
+        }
+        @include placeholder(#{$size}-shadow-#{$name}) {
+          box-shadow: $shadow;
+        }
+      }
+    }
+  }
+}

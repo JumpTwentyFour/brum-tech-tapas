@@ -1,0 +1,60 @@
+/* RESET ============================================================================= */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+ol, ul {list-style: none;list-style-position:outside}
+blockquote, q {quotes: none;}
+:focus {outline: 0;}
+ins {text-decoration: none;}
+del {text-decoration: line-through;}
+table {border-collapse: collapse;border-spacing: 0;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block;}
+html{overflow-y:scroll; height:100%; min-height:100%;}
+body { line-height:1.5; }
+
+audio[controls], canvas, video {display: inline-block; *display: inline; *zoom : 1; }
+
+
+/* Typography ========================================================================== */
+
+abbr[title] { border-bottom: 0; }
+b, strong { font-weight: bold; }
+blockquote { margin: 0; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+/* Redeclare monospace font family: en.wikipedia.org/wiki/User:Davidgothberg/Test59 */
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+/* Improve readability of pre-formatted text in all browsers */
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+small { font-size: 85%; }
+/* Position subscript and superscript content without affecting line-height: gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+a { text-decoration: none; }
+/*  Lists  ========================================================================== */
+
+dd { margin: 0; }
+nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
+
+/*  Figures  ========================================================================== */
+
+figure { margin: 0; }
+
+
+/* Forms  ========================================================================== */
+
+label { cursor: pointer; }
+button, input, select, textarea { vertical-align: baseline; *vertical-align: middle; }
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+input[type="checkbox"], input[type="radio"],input[type="search"] { box-sizing: border-box; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; }
