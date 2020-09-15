@@ -1,53 +1,76 @@
 {
-  "name": "brum-tech-tapas",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js --mode development && npm run copy-svgs && npm run copy-icons && webpack --watch --progress",
-    "build": "webpack --mode production && npm run copy-svgs && npm run copy-icons",
-    "copy-svgs": "rm -rf dist/svgs && cp -R src/svgs dist/svgs",
-    "copy-icons": "rm -rf dist/icons && cp -R src/icons dist/icons",
-    "standard": "standard"
-  },
-  "eslintConfig": {
-    "extends": "airbnb"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/polyfill": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-es2015": "^7.0.0-beta.53",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "clean-webpack-plugin": "^3.0.0",
-    "core-js": "^3.1.4",
-    "css-loader": "^2.1.1",
-    "eslint": "^5.3.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "image-webpack-loader": "^5.0.0",
-    "imagemin-webpack-plugin": "^2.4.2",
-    "mini-css-extract-plugin": "^0.6.0",
-    "node-sass": "^4.12.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "regenerator-runtime": "^0.13.2",
-    "sass-loader": "^7.1.0",
-    "standard": "^12.0.1",
-    "style-loader": "^0.23.1",
-    "svg-inline-loader": "^0.8.0",
-    "terser-webpack-plugin": "^1.3.0",
-    "url-loader": "^1.1.2",
-    "webpack": "^4.34.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.4.1"
-  },
-  "standard": {
-    "env": [
-      "node",
-      "es6"
-    ]
-  }
+    "name": "jump-twenty-four-website",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@babel/polyfill": "^7.4.4",
+        "core-js": "^3.6.4",
+        "dotenv": "^8.2.0",
+        "dotenv-webpack": "^1.7.0",
+        "fibers": "^4.0.1",
+        "imagemin-webpack-plugin": "^2.4.2",
+        "intersection-observer": "^0.7.0",
+        "moment": "^2.24.0",
+        "regenerator-runtime": "^0.13.2",
+        "webpack-s3-uploader": "^1.3.3"
+    },
+    "scripts": {
+        "start": "webpack-dev-server --config webpack.dev.js --mode development",
+        "build-qa": "webpack --config webpack.qa.js --mode production",
+        "build-prod": "webpack --config webpack.prod.js --mode production",
+        "preview": "yarn run build && http-server dist",
+        "test": "standard"
+    },
+    "eslintConfig": {
+        "extends": "airbnb"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.5",
+        "@babel/plugin-proposal-class-properties": "^7.4.4",
+        "@babel/preset-env": "^7.4.5",
+        "@types/jest": "^24.0.12",
+        "babel-eslint": "^10.0.2",
+        "babel-jest": "^24.8.0",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "clean-webpack-plugin": "^2.0.2",
+        "css-loader": "^2.1.1",
+        "eslint": "^5.3.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.17.2",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.13.0",
+        "file-loader": "^4.0.0",
+        "html-loader": "^0.5.5",
+        "html-webpack-partials-plugin": "^0.5.1",
+        "html-webpack-plugin": "^4.0.0-beta.5",
+        "http-server": "^0.11.1",
+        "image-webpack-loader": "^5.0.0",
+        "jest": "^24.8.0",
+        "mini-css-extract-plugin": "^0.6.0",
+        "node-sass": "^4.12.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.1",
+        "sass-loader": "^7.1.0",
+        "sitemap-webpack-plugin": "^0.6.0",
+        "standard": "^12.0.1",
+        "style-loader": "^0.23.1",
+        "svg-inline-loader": "^0.8.0",
+        "terser-webpack-plugin": "^1.3.0",
+        "url-loader": "^1.1.2",
+        "webpack": "^4.34.0",
+        "webpack-cli": "^3.3.2",
+        "webpack-dev-server": "^3.4.1"
+    },
+    "jest": {
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ]
+    },
+    "standard": {
+        "env": [
+            "node",
+            "es6"
+        ]
+    }
 }

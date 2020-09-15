@@ -1,6 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -29,6 +30,19 @@ module.exports = () => {
     // https://webpack.js.org/concepts/loaders/
     module: {
       rules: [
+        {
+          test: /\.(html)$/,
+          include: path.join(__dirname, 'src/views'),
+          use: {
+            loader: 'html-loader',
+            options: {
+              interpolate: true,
+              minimize: true,
+              removeComments: false,
+              collapseWhitespace: false
+            }
+          }
+        },
         {
           test: /\.js$/,
           loader: 'babel-loader',
