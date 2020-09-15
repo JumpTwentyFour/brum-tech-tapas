@@ -88,9 +88,12 @@ module.exports = () => {
     },
 
     devServer: {
-      contentBase: path.join(__dirname, 'src'),
-      index: 'index.html',
-      port: 8080
+      http2: true,
+      host: '0.0.0.0',
+      port: 8888,
+      disableHostCheck: true,
+      writeToDisk: false, // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+      contentBase: path.join(__dirname, './src')
     },
 
     // https://webpack.js.org/configuration/optimization/

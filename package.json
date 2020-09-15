@@ -2,10 +2,11 @@
   "name": "brum-tech-tapas",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --mode production && npm run copy-svgs",
+    "start": "webpack-dev-server --config webpack.config.js --mode development && npm run copy-svgs && npm run copy-icons && webpack --watch --progress",
+    "build": "webpack --mode production && npm run copy-svgs && npm run copy-icons",
     "copy-svgs": "rm -rf dist/svgs && cp -R src/svgs dist/svgs",
-    "standard": "standard",
-    "start": "npm run copy-svgs && webpack --mode development --watch --progress"
+    "copy-icons": "rm -rf dist/icons && cp -R src/icons dist/icons",
+    "standard": "standard"
   },
   "eslintConfig": {
     "extends": "airbnb"
