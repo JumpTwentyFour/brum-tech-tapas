@@ -7,10 +7,10 @@
   <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="${require('@/icons/favicon.ico')}">
-  <link rel="apple-touch-icon" sizes="180x180" href="/dist/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/dist/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/dist/icons/favicon-16x16.png">
-  <link rel="manifest" href="/dist/icons/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="${require('@/icons/apple-touch-icon.png')}">
+  <link rel="icon" type="image/png" sizes="32x32" href="${require('@/icons/favicon-32x32.png')}">
+  <link rel="icon" type="image/png" sizes="16x16" href="${require('@/icons/favicon-16x16.png')}">
+  <link rel="manifest" href="${require('@/icons/site.webmanifest')}">
   <link rel="mask-icon" href="/dist/icons/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#1f2c41">
   <meta name="theme-color" content="#F1F2F6">
@@ -31,21 +31,36 @@
 <body>
   <div class="site-wrapper">
     <header class="site-header">
-      <div class="row">
+      <div class="container">
         <div class="content">
+          <a href="/" title="Brum Tech Tapas" class="site-branding col-span-6">
+            ${require('@/svgs/logo.svg')}
+          </a>
+          <nav class="site-nav col-span-6">
+            <ul class="site-menu">
+              <li class="site-menu__item">
+                <a href=""
+                   title="Get involved with Brum Tech Tapas"
+                   class="site-menu__link"
+                >
+                  Get involved
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </header>
     <main>
       <section>
-        <div class="row">
+        <div class="container">
           <div class="content">
           </div>
         </div>
       </section>
     </main>
     <footer class="site-footer">
-      <div class="row">
+      <div class="container">
         <div class="content">
         </div>
       </div>

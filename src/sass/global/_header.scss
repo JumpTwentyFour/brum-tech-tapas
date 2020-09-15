@@ -1,0 +1,9 @@
+.site-header {
+  @extend .padding-top-40,
+  .padding-bottom-10;
+}
+
+.site-branding svg {
+  max-width: 232px;
+  width: 100%;
+}

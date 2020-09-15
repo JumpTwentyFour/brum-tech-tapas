@@ -28,3 +28,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.content {
+  @extend .grid,
+  .grid-cols-12,
+  .col-gap;
+}
