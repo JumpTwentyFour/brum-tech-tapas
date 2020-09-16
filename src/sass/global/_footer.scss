@@ -1,3 +1,14 @@
+.site-footer {
+  @extend .margin-top-100;
+
+  @include mq(m) {
+    @extend .m-margin-top-60;
+  }
+  @include mq(sm) {
+    @extend .sm-margin-top-40;
+  }
+}
+
 .site-footer__wrapper {
   @extend .inline-grid,
   .grid-cols-11,

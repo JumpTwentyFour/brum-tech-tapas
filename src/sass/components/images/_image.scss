@@ -1,5 +1,6 @@
 .img {
-  @extend .overflow-hidden;
+  @extend .relative,
+  .overflow-hidden;
 }
 
 .img__absolute {
@@ -7,4 +8,9 @@
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.img__pink {
+  filter: grayscale(100%);
+  mix-blend-mode: multiply;
 }
