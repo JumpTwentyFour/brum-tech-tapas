@@ -40,7 +40,7 @@
           <nav class="site-nav col-span-6 sm-col-span-4 s-col-span-3 inline-flex justify-content-end">
             <ul class="site-menu">
               <li class="site-menu__item">
-                <a href=""
+                <a href="/"
                    title="Get involved with Brum Tech Tapas"
                    class="site-menu__link link"
                 >
@@ -53,9 +53,29 @@
       </div>
     </header>
     <main>
-      <section>
+      <section class="mast-head">
         <div class="container l-container sm-container">
           <div class="content">
+            <header class="mast-head__header col-span-6 col-start-2 m-col-span-6 m-col-start-1 sm-col-span-5 s-col-span-6">
+              <h1 class="header-one">
+                Bringing you tasty tech tidbits
+              </h1>
+            </header>
+            <div class="mast-head__copy col-span-4 m-col-span-6 sm-col-span-5 sm-row-start-2 s-col-span-6">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Aenean a scelerisque urna, eu lacinia odio. Nunc congue
+                turpis euismod justo rhoncus egestas. Donec mattis risus quam,
+                eu tempus metus commodo vitae. Morbi tincidunt tincidunt
+                tortor sit amet eleifend.
+              </p>
+            </div>
+            <div class="mast-head__image img col-span-10 col-start-2 m-col-span-12 m-col-start-1 sm-col-span-6 bg-athens-grey shadow-xl">
+              <img src="https://www.fillmurray.com/1440/900"
+                   alt=""
+                   class="width-full img__absolute"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -76,14 +96,18 @@
             <div class="site-footer__social col-span-5 sm-col-span-2 s-col-span-6">
               <ul class="social flex align-items-center justify-content-end s-justify-content-start">
                 <li class="social__item">
-                  <span class="social__icon social__icon--med">
-                    ${require('@/svgs/twitter.svg')}
-                  </span>
+                  <a href="" class="social__link" target="_blank">
+                    <span class="social__icon social__icon--med">
+                      ${require('@/svgs/twitter.svg')}
+                    </span>
+                  </a>
                 </li>
                 <li class="social__item">
-                  <span class="social__icon social__icon--med">
-                    ${require('@/svgs/jump24-logo.svg')}
-                  </span>
+                  <a href="https://jump24.co.uk/" class="social__link" target="_blank">
+                    <span class="social__icon social__icon--med">
+                      ${require('@/svgs/jump24-logo.svg')}
+                    </span>
+                  </a>
                 </li>
               </ul>
             </div>
