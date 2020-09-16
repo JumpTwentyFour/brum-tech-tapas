@@ -1,0 +1,82 @@
+.speakers__header {
+  @extend .margin-bottom-40;
+
+  @include mq(sm) {
+    @extend .sm-margin-bottom-20;
+  }
+}
+
+.speakers__intro {
+  @extend .margin-bottom-30;
+}
+
+.speakers__intro p {
+  @extend .body-medium;
+}
+
+.speakers__lineup {
+  @extend .inline-grid,
+  .grid-cols-10,
+  .col-gap;
+
+  @include mq(l) {
+    @extend .l-col-gap;
+  }
+  @include mq(m) {
+    @extend .m-grid-cols-11;
+  }
+  @include mq(sm) {
+    @extend .sm-grid-cols-6,
+    .sm-col-gap;
+  }
+}
+
+.speakers__item {
+  @extend .inline-grid,
+  .grid-cols-5,
+  .col-gap,
+  .margin-top-50,
+  .margin-bottom-50,
+  .cursor-pointer,
+  .align-items-start;
+
+  @include mq(l) {
+    @extend .l-col-gap;
+  }
+  @include mq(m) {
+    @extend .m-margin-top-30,
+    .m-margin-bottom-30;
+  }
+  @include mq(sm) {
+    @extend .sm-grid-cols-6,
+    .sm-col-gap,
+    .sm-margin-top-20,
+    .sm-margin-bottom-20;
+  }
+}
+
+.speakers__item:last-child,
+.speakers__item:nth-last-child(2) {
+  @extend .margin-bottom-0;
+}
+
+.speakers__item:last-child {
+  @include mq(m) {
+    @extend .m-margin-bottom-30;
+  }
+  @include mq(sm) {
+    @extend .sm-margin-bottom-20;
+  }
+}
+
+.speakers__image {
+  padding-bottom: 100%;
+}
+
+.speakers__title {
+  @extend .margin-top-8;
+}
+
+.speakers__name {
+  @extend .margin-bottom-10;
+}
