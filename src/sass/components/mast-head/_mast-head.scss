@@ -20,7 +20,11 @@
 }
 
 .mast-head__image {
-  @extend .relative,
-  .margin-top-50;
+  @extend .margin-top-50;
   padding-bottom: 50%;
+
+  @include mq(sm) {
+    padding-bottom: 109%;
+  }
 }
+

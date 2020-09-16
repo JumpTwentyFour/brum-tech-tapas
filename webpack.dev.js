@@ -177,7 +177,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, './src/'),
       views: path.resolve(__dirname, './src/views'),
-      images: path.resolve(__dirname, './src/assets/images'),
+      images: path.resolve(__dirname, './src/images'),
     },
   },
 };
