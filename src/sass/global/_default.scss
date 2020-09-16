@@ -33,4 +33,12 @@ body {
   @extend .grid,
   .grid-cols-12,
   .col-gap;
+
+  @include mq(l) {
+    @extend .l-col-gap;
+  }
+  @include mq(sm) {
+    @extend .sm-grid-cols-6,
+    .sm-col-gap;
+  }
 }

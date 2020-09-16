@@ -1,9 +1,22 @@
 .site-header {
   @extend .padding-top-40,
   .padding-bottom-10;
+
+  @include mq(sm) {
+    @extend .sm-padding-top-20;
+  }
 }
 
 .site-branding svg {
   max-width: 232px;
   width: 100%;
+
+  @include mq(sm) {
+    max-width: 50px;
+  }
+}
+
+.site-menu__link {
+  @extend .body-reg;
+  top: -2px;
 }
