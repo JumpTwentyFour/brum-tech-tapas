@@ -123,12 +123,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.svg$/,
+        test: /\.svg/,
         loader: 'svg-inline-loader'
       },
       {
         // Load all images as base64 encoding if they are smaller than 8192 bytes
-        test: /\.(png|jpg|gif|ico)$/,
+        test: /\.(png|jpg|gif|ico|xml|webmanifest)$/,
         use: [
           {
             loader: 'url-loader',
