@@ -54,11 +54,13 @@
 }
 
 .speakers__image {
+  @extend .pointer-none;
   padding-bottom: 100%;
 }
 
 .speakers__title {
-  @extend .margin-top-8;
+  @extend .margin-top-8,
+  .pointer-none;
   z-index: 1;
 }
 

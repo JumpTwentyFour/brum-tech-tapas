@@ -12,13 +12,18 @@
   left: 0;
 }
 
+.overlay.overlay--open {
+  @extend .block;
+}
+
 .overlay__close {
   @extend .bg-cloudburst,
   .inline-flex,
   .justify-content-end,
   .padding-top-40,
   .padding-bottom-40,
-  .sticky;
+  .sticky,
+  .cursor-pointer;
   top: 0;
   z-index: 5;
 
@@ -30,8 +35,7 @@
 
 .overlay__close p {
   @extend .flex,
-  .align-items-end,
-  .cursor-pointer;
+  .align-items-end;
 }
 
 .overlay__close .link {
