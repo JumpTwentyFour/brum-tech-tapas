@@ -1,0 +1,48 @@
+.about__header {
+  @extend .margin-bottom-40;
+
+  @include mq(sm) {
+    @extend .sm-margin-bottom-20;
+  }
+}
+
+.about__copy p {
+  @extend .body-medium,
+  .margin-bottom-30;
+}
+
+.about__copy p:last-child {
+  @extend .margin-bottom-0;
+}
+
+.about__image {
+  @extend .inline-flex,
+  .align-items-center;
+}
+
+.about__image svg {
+  width: 100%;
+}
+
+.about__logo,
+.about__name {
+  @extend .flex;
+}
+
+.about__name {
+  @extend .grow-1,
+  .flex-col;
+}
+
+.about__logo-mark {
+  max-width: 127px;
+}
+
+.about__logo-name {
+  max-width: 432px;
+}
+
+.about__logo-collab {
+  max-width: 427px;
+}
+
