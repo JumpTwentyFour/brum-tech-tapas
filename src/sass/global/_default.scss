@@ -28,10 +28,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+  @extend .width-full,
+  .flex,
+  .flex-col,
+  .justify-content-center;
+}
+
 .content {
   @extend .grid,
   .grid-cols-12,
-  .col-gap;
+  .col-gap,
+  .align-self-center;
+  max-width: $xl;
+  width: 100%;
 
   @include mq(l) {
     @extend .l-col-gap;
