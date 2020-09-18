@@ -1,0 +1,9 @@
+.field {
+  @extend .flex,
+  .flex-col,
+  .margin-bottom-30;
+}
+
+.field:not(.field--button):last-child {
+  @extend .margin-bottom-0;
+}

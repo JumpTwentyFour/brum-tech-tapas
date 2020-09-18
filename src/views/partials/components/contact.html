@@ -1,23 +1,30 @@
 <section class="contact section">
     <div class="container l-container sm-container">
-      <div class="content align-items-start">
-        <header class="contact__header col-span-7 col-tart-3 row-start-1">
+      <div class="content">
+        <header class="contact__header col-span-7 col-start-3 l-col-span-8 m-col-start-2 m-col-span-9 sm-col-span-6 sm-col-start-1 row-start-1">
           <h3 class="header-two">
             Interested in speaking?
           </h3>
         </header>
-        <div class="contact__box col-span-2 col-start-6 row-span-2 row-start-1"></div>
+        <div class="contact__box relative col-span-2 col-start-6 l-col-span-3 m-col-span-4 sm-col-span-3 sm-col-start-2 row-span-2 row-start-1"></div>
         <form action=""
               id=""
-              class="contact__form col-span-3"
+              class="contact__form col-span-3 col-start-6 l-col-span-4 l-col-start-7 m-col-span-5 sm-col-span-4 sm-col-start-3 s-col-span-5 s-col-start-2 row-start-2"
         >
           <div class="field">
-            <label for="name">Full name<sup>*</sup></label>
-            <input type="text" id="name" value="" />
+            <label for="name" class="label">Full name<sup>*</sup></label>
+            <input type="text" id="name" value="" class="input" />
           </div>
           <div class="field">
-            <label for="email">Email address<sup>*</sup></label>
-            <input type="email" id="email" value="" />
+            <label for="email" class="label">Email address<sup>*</sup></label>
+            <input type="email" id="email" value="" class="input" />
+          </div>
+          <div class="field field--button align-items-end">
+            <button type="submit" class="form-btn">
+              <span class="icon icon--arrow flex">
+                ${require('@/svgs/arrow-right.svg')}
+              </span>
+            </button>
           </div>
         </form>
       </div>
