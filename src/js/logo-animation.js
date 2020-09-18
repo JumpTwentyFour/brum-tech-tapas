@@ -19,5 +19,4 @@ export default class LogoAnimation {
       path: path.resolve(__dirname, 'dist/logo.json')
     });
   };
-
 }
