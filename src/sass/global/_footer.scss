@@ -72,3 +72,7 @@
 .site-footer__social .social__item:last-child {
   @extend .margin-left-20;
 }
+
+.site-footer__social .svg-twitter {
+  @extend .fill-cloudburst;
+}

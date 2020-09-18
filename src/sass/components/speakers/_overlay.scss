@@ -1,0 +1,83 @@
+.speaker__image {
+  @extend .margin-bottom-30;
+  padding-bottom: 100%;
+
+  @include mq(s) {
+    @extend .s-margin-bottom-20;
+  }
+}
+
+.speaker__bio h2 {
+  @extend .margin-bottom-30;
+}
+
+.speaker__bio .social {
+  @extend .margin-top-40;
+}
+
+.speaker__bio .social__item {
+  @extend .margin-bottom-20;
+}
+
+.speaker__bio .social__item :last-child {
+  @extend .margin-bottom-0;
+}
+
+.speaker__bio .social__icon {
+  @extend .margin-right-20;
+}
+
+.speaker__bio .social__icon svg {
+  @extend .fill-athens-grey;
+}
+
+.speaker__details {
+  @extend .inline-grid,
+  .grid-cols-6,
+  .col-gap,
+  .padding-top-8;
+
+  @include mq(l) {
+    @extend .l-col-gap;
+  }
+  @include mq(sm) {
+    @extend .sm-grid-cols-6,
+    .sm-col-gap;
+    z-index: 1;
+  }
+  @include mq(s) {
+    @extend .s-padding-top-0;
+  }
+}
+
+.speaker__name {
+  @extend .margin-bottom-30;
+
+  @include mq(m) {
+    @extend .m-margin-bottom-10;
+  }
+
+  @include mq(sm) {
+    @include rem2px(font-size, 5);
+  }
+}
+
+.speaker__talk {
+  @extend .color-french-rose,
+  .margin-bottom-60;
+
+  @include mq(m) {
+    @extend .m-margin-bottom-30;
+  }
+  @include mq(sm) {
+    @extend .sm-color-athens-grey;
+  }
+  @include mq(s) {
+    @extend .s-color-french-rose;
+  }
+}
+
+.speaker__info p {
+  @extend .body-medium,
+  .margin-bottom-30;
+}

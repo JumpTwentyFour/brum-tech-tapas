@@ -105,7 +105,7 @@
             >
               <img src="${require('@/images/event.jpg')}"
                    alt=""
-                   class="width-full img__absolute img__pink"
+                   class="width-full img__absolute img__multiply"
                />
             </a>
             <div class="event__copy col-span-4 col-start-9 l-col-span-5 l-col-start-8 sm-col-span-4 sm-col-start-3
@@ -121,6 +121,276 @@
           </div>
         </div>
       </section>
+      <section class="section speakers">
+        <div class="container l-container sm-container">
+          <div class="content">
+            <div class="section__header col-span-1 row-span-3">
+              <h2 class="section__title">
+                Speakers
+                <span class="section__stroke"></span>
+              </h2>
+            </div>
+            <header class="speakers__header col-span-5 col-start-2 m-col-span-6 m-col-start-2 sm-col-span-6 sm-col-start-1">
+              <h2 class="header-two">The line up</h2>
+            </header>
+            <div class="speakers__intro col-span-5 col-start-2 m-col-span-6 m-col-start-2 sm-col-span-5 sm-col-start-1 s-col-span-6">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Aenean a scelerisque urna, eu lacinia odio. Nunc congue turpis
+                euismod justo rhoncus egestas. Donec mattis risus quam, eu
+                tempus metus commodo vitae Morbi tincidunt tincidunt tortor
+                sit amet eleifend.
+              </p>
+            </div>
+            <div class="speakers__lineup col-span-10 col-start-3 m-col-span-11 m-col-start-2 sm-col-span-6 sm-col-start-1">
+              <div class="speakers__item col-span-5 sm-col-span-6" data-overlay-id="florence-okoye">
+                <div class="speakers__image img col-span-3 col-start-1 bg-french-rose row-start-1">
+                  <img src="${require('@/images/speaker.jpg')}"
+                       alt=""
+                       class="width-full img__absolute img__multiply"
+                   />
+                </div>
+                <div class="speakers__title col-span-3 col-start-3 m-col-span-4 m-col-start-2 sm-col-start-3 row-start-1">
+                  <h3 class="header-four speakers__name">Florence Okoye</h3>
+                  <h4 class="header-five speakers__position">UX & Service designer, Natural History Museum</h4>
+                </div>
+              </div>
+              <div class="speakers__item col-span-5 sm-col-span-6" data-overlay-id="rachel-andrew">
+                <div class="speakers__image img col-span-3 col-start-1 bg-dodger-blue row-start-1">
+                  <img src="${require('@/images/speaker.jpg')}"
+                       alt=""
+                       class="width-full img__absolute img__multiply"
+                  />
+                </div>
+                <div class="speakers__title col-span-3 col-start-3 m-col-span-4 m-col-start-2 sm-col-start-3 row-start-1">
+                  <h3 class="header-four speakers__name">Rachel Andrew</h3>
+                  <h4 class="header-five speakers__position">Smashing Magazine Editor in Chief</h4>
+                </div>
+              </div>
+              <div class="speakers__item col-span-5 sm-col-span-6 sm-row-start-4" data-overlay-id="leonie-watson">
+                <div class="speakers__image img col-span-3 col-start-1 bg-dodger-blue row-start-1">
+                  <img src="${require('@/images/speaker.jpg')}"
+                       alt=""
+                       class="width-full img__absolute img__multiply"
+                  />
+                </div>
+                <div class="speakers__title col-span-3 col-start-3 m-col-span-4 m-col-start-2 sm-col-start-3 row-start-1"
+                     data-speaker="leonie-watson">
+                  <h3 class="header-four speakers__name">Léonie Watson</h3>
+                  <h4 class="header-five speakers__position">Director, TetraLogical</h4>
+                </div>
+              </div>
+              <div class="speakers__item col-span-5 sm-col-span-6 sm-row-start-3" data-overlay-id="mike-smith">
+                <div class="speakers__image img col-span-3 col-start-1 bg-french-rose row-start-1">
+                  <img src="${require('@/images/speaker.jpg')}"
+                       alt=""
+                       class="width-full img__absolute img__multiply"
+                  />
+                </div>
+                <div class="speakers__title col-span-3 col-start-3 m-col-span-4 m-col-start-2 sm-col-start-3 row-start-1">
+                  <h3 class="header-four speakers__name">Mike Smith</h3>
+                  <h4 class="header-five speakers__position">Web Developer, Oxbotica</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <article id="florence-okoye" class="overlay">
+        <div class="container l-container sm-container">
+          <div class="content">
+            <div class="overlay__close col-span-12 sm-col-span-6">
+              <p class="overlay__close-btn">
+                <span class="link">Close</span>
+                <span class="icon icon--close">${require('@/svgs/close.svg')}</span>
+              </p>
+            </div>
+            <div class="overlay__content col-span-12 sm-col-span-6">
+              <div class="speaker__overview col-span-4 col-start-2 m-col-start-1 sm-col-span-3 sm-row-start-1 s-col-span-5">
+                <div class="speaker__image img bg-french-rose shadow-xl">
+                  <img src="${require('@/images/speaker.jpg')}"
+                       alt=""
+                       class="width-full img__absolute img__multiply"
+                  />
+                </div>
+                <div class="speaker__bio sm-hidden">
+                  <h2 class="header-five speaker__position">UX & Service designer, Natural History Museum</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a scelerisque urna, eu lacinia odio.
+                    Nunc congue turpis euismod justo rhoncus egestas. Donec mattis risus quam, eu tempus metus commodo
+                    vitae. Morbi tincidunt tincidunt tortor sit amet eleifend.
+                  </p>
+                  <ul class="social">
+                    <li class="social__item">
+                      <a href="" class="social__link">
+                        <span class="social__icon social__icon--small">
+                          ${require('@/svgs/twitter.svg')}
+                        </span>
+                        @FINOkoye
+                      </a>
+                    </li>
+                    <li class="social__item">
+                      <a href="" class="social__link">
+                        <span class="social__icon social__icon--small">
+                          ${require('@/svgs/twitter.svg')}
+                        </span>
+                        finokoye.com
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="speaker__details col-span-6 col-start-7 m-col-span-7 m-col-start-6 sm-col-span-4 sm-col-start-3 sm-row-start-1 s-col-span-6 s-col-start-1 s-row-start-2">
+                <header class="speaker__header col-span-6">
+                  <h2 class="header-one speaker__name">Florence Okoye</h2>
+                  <h3 class="header-four speaker__talk">Are we even designing? Like, at all?</h3>
+                </header>
+                <div class="speaker__info col-span-5 l-col-span-6">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas orci tortor, mollis ut nibh in,
+                    interdum auctor orci. Curabitur volutpat cursus mauris, volutpat aliquet leo tempor id. Orci varius
+                    natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                  </p>
+                  <p>Phasellus lacinia laoreet urna quis tristique. Morbi dui sem, viverra nec sollicitudin sed, posuere
+                    ut ligula. Curabitur nibh tortor, dapibus nec sollicitudin vitae, luctus at neque. Curabitur mollis
+                    lorem placerat aliquet feugiat. Phasellus tristique luctus ipsum non ullamcorper.
+                  </p>
+                  <p>
+                    Aliquam varius risus ligula, eget aliquam orci efficitur sed. Nam semper nibh ligula, sit amet pulvinar
+                    nisi iaculis sed. Nunc convallis erat et varius commodo. Pellentesque convallis turpis sed tellus
+                    fringilla, in lacinia leo efficitur. Nunc ac nunc interdum, varius ante ut, volutpat enim. Curabitur ante
+                    elit, accumsan ut augue id, luctus volutpat lectus.
+                  </p>
+                </div>
+              </div>
+              <div class="speaker__bio hidden sm-inline-flex sm-col-span-4 sm-col-start-3 s-col-span-6 s-col-start-1 flex-col sm-margin-top-40">
+                <h4 class="header-four sm-margin-bottom-10 color-french-rose">A bit about Florence Okoye&hellip;</h4>
+                <h2 class="header-five speaker__position">UX & Service designer, Natural History Museum</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a scelerisque urna, eu lacinia odio.
+                  Nunc congue turpis euismod justo rhoncus egestas. Donec mattis risus quam, eu tempus metus commodo
+                  vitae. Morbi tincidunt tincidunt tortor sit amet eleifend.
+                </p>
+                <ul class="social">
+                  <li class="social__item">
+                    <a href="" class="social__link">
+                        <span class="social__icon social__icon--small">
+                          ${require('@/svgs/twitter.svg')}
+                        </span>
+                      @FINOkoye
+                    </a>
+                  </li>
+                  <li class="social__item">
+                    <a href="" class="social__link">
+                        <span class="social__icon social__icon--small">
+                          ${require('@/svgs/twitter.svg')}
+                        </span>
+                      finokoye.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article id="rachel-andrew" class="overlay">
+        <div class="container l-container sm-container">
+          <div class="content">
+            <div class="overlay__close col-span-12 sm-col-span-6">
+              <p class="overlay__close-btn">
+                <span class="link">Close</span>
+                <span class="icon icon--close">${require('@/svgs/close.svg')}</span>
+              </p>
+            </div>
+            <div class="overlay__content col-span-12 sm-col-span-6">
+              <div class="speaker__overview col-span-4 col-start-2 m-col-start-1 sm-col-span-3 sm-row-start-1 s-col-span-5">
+                <div class="speaker__image img bg-french-rose shadow-xl">
+                  <img src="${require('@/images/speaker.jpg')}"
+                       alt=""
+                       class="width-full img__absolute img__multiply"
+                  />
+                </div>
+                <div class="speaker__bio sm-hidden">
+                  <h2 class="header-five speaker__position">UX & Service designer, Natural History Museum</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a scelerisque urna, eu lacinia odio.
+                    Nunc congue turpis euismod justo rhoncus egestas. Donec mattis risus quam, eu tempus metus commodo
+                    vitae. Morbi tincidunt tincidunt tortor sit amet eleifend.
+                  </p>
+                  <ul class="social">
+                    <li class="social__item">
+                      <a href="" class="social__link">
+                        <span class="social__icon social__icon--small">
+                          ${require('@/svgs/twitter.svg')}
+                        </span>
+                        @FINOkoye
+                      </a>
+                    </li>
+                    <li class="social__item">
+                      <a href="" class="social__link">
+                        <span class="social__icon social__icon--small">
+                          ${require('@/svgs/twitter.svg')}
+                        </span>
+                        finokoye.com
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="speaker__details col-span-6 col-start-7 m-col-span-7 m-col-start-6 sm-col-span-4 sm-col-start-3 sm-row-start-1 s-col-span-6 s-col-start-1 s-row-start-2">
+                <header class="speaker__header col-span-6">
+                  <h2 class="header-one speaker__name">Rachel Andrew</h2>
+                  <h3 class="header-four speaker__talk">Are we even designing? Like, at all?</h3>
+                </header>
+                <div class="speaker__info col-span-5 l-col-span-6">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas orci tortor, mollis ut nibh in,
+                    interdum auctor orci. Curabitur volutpat cursus mauris, volutpat aliquet leo tempor id. Orci varius
+                    natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                  </p>
+                  <p>Phasellus lacinia laoreet urna quis tristique. Morbi dui sem, viverra nec sollicitudin sed, posuere
+                    ut ligula. Curabitur nibh tortor, dapibus nec sollicitudin vitae, luctus at neque. Curabitur mollis
+                    lorem placerat aliquet feugiat. Phasellus tristique luctus ipsum non ullamcorper.
+                  </p>
+                  <p>
+                    Aliquam varius risus ligula, eget aliquam orci efficitur sed. Nam semper nibh ligula, sit amet pulvinar
+                    nisi iaculis sed. Nunc convallis erat et varius commodo. Pellentesque convallis turpis sed tellus
+                    fringilla, in lacinia leo efficitur. Nunc ac nunc interdum, varius ante ut, volutpat enim. Curabitur ante
+                    elit, accumsan ut augue id, luctus volutpat lectus.
+                  </p>
+                </div>
+              </div>
+              <div class="speaker__bio hidden sm-inline-flex sm-col-span-4 sm-col-start-3 s-col-span-6 s-col-start-1 flex-col sm-margin-top-40">
+                <h4 class="header-four sm-margin-bottom-10 color-french-rose">A bit about Florence Okoye&hellip;</h4>
+                <h2 class="header-five speaker__position">UX & Service designer, Natural History Museum</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a scelerisque urna, eu lacinia odio.
+                  Nunc congue turpis euismod justo rhoncus egestas. Donec mattis risus quam, eu tempus metus commodo
+                  vitae. Morbi tincidunt tincidunt tortor sit amet eleifend.
+                </p>
+                <ul class="social">
+                  <li class="social__item">
+                    <a href="" class="social__link">
+                        <span class="social__icon social__icon--small">
+                          ${require('@/svgs/twitter.svg')}
+                        </span>
+                      @FINOkoye
+                    </a>
+                  </li>
+                  <li class="social__item">
+                    <a href="" class="social__link">
+                        <span class="social__icon social__icon--small">
+                          ${require('@/svgs/twitter.svg')}
+                        </span>
+                      finokoye.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     </main>
     <footer class="site-footer overflow-hidden sm-bg-athens-grey">
       <div class="container l-container sm-container">
