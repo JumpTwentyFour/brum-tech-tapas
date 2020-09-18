@@ -8,7 +8,6 @@ export default class LogoAnimation {
 
   init = () => {
     this.loadAnimation();
-    console.log(path.resolve(__dirname, '/logo.json'));
   };
 
   loadAnimation = () => {
