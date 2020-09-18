@@ -1,0 +1,30 @@
+.about .content {
+  grid-template-rows: max-content;
+}
+
+.about__header {
+  @extend .margin-bottom-40;
+
+  @include mq(sm) {
+    @extend .sm-margin-bottom-20;
+  }
+}
+
+.about__copy p {
+  @extend .body-medium,
+  .margin-bottom-30;
+}
+
+.about__copy p:last-child {
+  @extend .margin-bottom-0;
+}
+
+.about__image {
+  @extend .inline-flex,
+  .align-self-center,
+  .align-items-center;
+}
+
+.about__image svg {
+  width: 100%;
+}
