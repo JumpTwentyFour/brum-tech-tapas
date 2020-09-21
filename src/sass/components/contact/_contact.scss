@@ -1,0 +1,32 @@
+.contact__header {
+  @extend .margin-top-10;
+}
+
+.contact__box:before {
+  @extend .absolute,
+  .bg-french-rose,
+  .shadow-xl;
+  content: '';
+  width: calc(100% + 80px);
+  height: 100%;
+  left: -40px;
+  top: 0;
+  z-index: -1;
+
+  @include mq(l) {
+    width: calc(100% + 60px);
+    left: -30px;
+  }
+}
+
+.contact__form {
+  @extend .margin-top-60,
+  .flex,
+  .flex-col,
+  .relative;
+  z-index: 2;
+}
+
+.contact__form .field--button {
+  @extend .margin-bottom-0;
+}
