@@ -1,0 +1,12 @@
+.animation-width {
+  transform-origin: left;
+  width: 0;
+}
+
+.in-view .animation-width,
+.in-view.animation-width {
+  @extend .overflow-hidden;
+  animation-name: width;
+  animation-fill-mode: forwards;
+  transition: width 0.3s ease-in-out;
+}

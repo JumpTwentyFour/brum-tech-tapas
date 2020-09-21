@@ -2,11 +2,9 @@
   @extend .margin-top-10;
 }
 
-.contact__box:before {
+.contact__box .contact__anim {
   @extend .absolute,
-  .bg-french-rose,
-  .shadow-xl;
-  content: '';
+  .flex;
   width: calc(100% + 80px);
   height: 100%;
   left: -40px;
@@ -19,6 +17,22 @@
   }
 }
 
+.contact__box .contact__anim:before {
+  @extend .bg-french-rose,
+  .shadow-xl,
+  .flex;
+  content: '';
+  width: 0;
+  animation-delay: 0.2s;
+  animation-duration: 0.6s;
+}
+
+.contact .content.in-view .contact__box .contact__anim:before {
+  animation-name: width;
+  animation-fill-mode: forwards;
+  transition: width 0.3s ease-in-out;
+}
+
 .contact__form {
   @extend .margin-top-60,
   .flex,
@@ -29,4 +43,21 @@
 
 .contact__form .field--button {
   @extend .margin-bottom-0;
+}
+
+.contact__form input {
+  @extend .padding-left-0,
+  .padding-right-0;
+  text-indent: 20px;
+  white-space: nowrap;
+}
+
+.contact__form input:first-child {
+  animation-delay: 0.4s;
+  animation-duration: 0.4s;
+}
+
+.contact__form input:nth-child(2) {
+  animation-delay: 0.6s;
+  animation-duration: 0.4s;
 }

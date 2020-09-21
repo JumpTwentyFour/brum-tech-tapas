@@ -21,6 +21,11 @@
 
 .mast-head__image {
   @extend .margin-top-50;
+}
+
+.mast-head__image .animation-wrapper {
+  animation-duration: 0.8s;
+  animation-delay: 0.2s;
   padding-bottom: 50%;
 
   @include mq(sm) {

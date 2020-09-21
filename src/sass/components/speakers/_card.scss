@@ -53,7 +53,23 @@
   }
 }
 
+.speakers__item .animation-wrapper {
+  animation-duration: 0.4s;
+}
+
+.speakers__item.in-view:nth-child(even) .animation-wrapper {
+  animation-delay: 0.1s;
+}
+
+.speakers__item.in-view:nth-child(even) .animation-wrapper {
+  animation-delay: 0.3s;
+}
+
 .speakers__image {
+  @extend .pointer-none;
+}
+
+.speakers__image .animation-wrapper {
   @extend .pointer-none;
   padding-bottom: 100%;
 }
