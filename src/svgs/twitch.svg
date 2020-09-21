@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <title>twitch</title>
+  <circle cx="64" cy="64" r="64" style="fill: #1f2c41"></circle>
+  <g>
+    <path d="M92.17,72.69V38.26H40.52V83.65h14.1V93L64,83.65H81.21ZM79.65,94.6H65.56L56.18,104h-9.4V94.6H29.57V44.52L34.27,32H98.43V75.83Z" style="fill: #fff"></path>
+    <rect x="74.95" y="50.79" width="6.26" height="18.78" style="fill: #fff"></rect>
+    <rect x="57.74" y="50.79" width="6.26" height="18.78" style="fill: #fff"></rect>
+  </g>
+</svg>
