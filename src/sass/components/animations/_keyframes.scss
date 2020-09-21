@@ -6,3 +6,31 @@
     width: 100%;
   }
 }
+
+@keyframes transform-X {
+  0% {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes transformX {
+  0% {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

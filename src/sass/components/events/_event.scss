@@ -7,6 +7,8 @@
 .event__header {
   @extend .margin-bottom-20,
   .margin-top-8;
+  animation-delay: 0.4s;
+  animation-duration: 0.6s;
 
   @include mq(s) {
     @extend .s-margin-bottom-0,
@@ -48,6 +50,8 @@
   @extend .flex,
   .flex-col,
   .align-items-start;
+  animation-delay: 0.8s;
+  animation-duration: 0.6s;
 }
 
 .event__copy p,

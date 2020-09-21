@@ -57,11 +57,11 @@
   animation-duration: 0.4s;
 }
 
-.speakers__item.in-view:nth-child(even) .animation-wrapper {
+.speakers__item:nth-child(even) .animation-wrapper {
   animation-delay: 0.1s;
 }
 
-.speakers__item.in-view:nth-child(even) .animation-wrapper {
+.speakers__item:nth-child(even) .animation-wrapper {
   animation-delay: 0.3s;
 }
 
@@ -78,6 +78,15 @@
   @extend .margin-top-8,
   .pointer-none;
   z-index: 1;
+  animation-duration: 0.6s;
+}
+
+.speakers__item:nth-child(even) .animation-transformX {
+  animation-delay: 0.3s;
+}
+
+.speakers__item:nth-child(even) .animation-transformX {
+  animation-delay: 0.5s;
 }
 
 .speakers__name {

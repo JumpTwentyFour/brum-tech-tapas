@@ -3,10 +3,36 @@
   width: 0;
 }
 
+.animation-transform-X {
+  @extend .opacity-0;
+  transform-origin: left;
+  transform: translateX(-60px);
+}
+
+.animation-transformX {
+  @extend .opacity-0;
+  transform-origin: left;
+  transform: translateX(60px);
+}
+
 .in-view .animation-width,
 .in-view.animation-width {
   @extend .overflow-hidden;
   animation-name: width;
+  animation-fill-mode: forwards;
+  transition: width 0.3s ease-in-out;
+}
+
+.in-view .animation-transform-X,
+.in-view.animation-transform-X {
+  animation-name: transform-X;
+  animation-fill-mode: forwards;
+  transition: width 0.3s ease-in-out;
+}
+
+.in-view .animation-transformX,
+.in-view.animation-transformX {
+  animation-name: transformX;
   animation-fill-mode: forwards;
   transition: width 0.3s ease-in-out;
 }

@@ -11,6 +11,19 @@
   }
 }
 
+.mast-head__header,
+.mast-head__copy {
+  animation-duration: 0.8s;
+}
+
+.mast-head__header {
+  animation-delay: 0.2s;
+}
+
+.mast-head__copy {
+  animation-delay: 0.4s;
+}
+
 .mast-head__copy {
   @extend .padding-top-30;
 }
