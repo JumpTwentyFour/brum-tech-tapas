@@ -1,17 +1,18 @@
-const SitemapPlugin = require('sitemap-webpack-plugin').default;
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const path = require('path');
-const Dotenv = require('dotenv-webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // installed via npm
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const buildPath = path.resolve(__dirname, 'dist');
-const pagesPath = path.resolve(__dirname, 'src/views/pages');
-let files = null;
 
 // We need Nodes fs module to read directory contents
 const fs = require('fs');
 
 function getFileNameAndFolder(file) {
-  const reformattedFile = file.replace(pagesPath, buildPath);
+  const pagesFolder = path.resolve(__dirname, 'src/views/pages');
+  const reformattedFile = file.replace(pagesFolder, buildPath);
   return reformattedFile;
 }
 
@@ -25,7 +26,7 @@ function returnHtmlWebpackPlugin(file) {
 }
 
 function getAllFiles(dirPath, arrayOfFiles) {
-  files = fs.readdirSync(dirPath);
+  const files = fs.readdirSync(dirPath);
 
   arrayOfFiles = arrayOfFiles || [];
 
@@ -60,24 +61,23 @@ function generateHtmlPlugins(templateDir) {
 const htmlPlugins = generateHtmlPlugins('./src/views/pages/');
 
 module.exports = {
-  // This option controls if and how source maps are generated.
-  // https://webpack.js.org/configuration/devtool/
-  devtool: 'eval-cheap-module-source-map',
-  node: {
-    fs: 'empty',
-  },
+  mode: 'production',
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
     index: './src/js/main.js',
   },
-  // https://webpack.js.org/configuration/dev-server/
-  devServer: {
-    http2: true,
-    host: '0.0.0.0',
-    port: 8888,
-    disableHostCheck: true,
-    writeToDisk: false, // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+
+  node: {
+    fs: 'empty',
   },
+
+  // how to write the compiled files to disk
+  // https://webpack.js.org/concepts/output/
+  output: {
+    filename: '[name].[hash:20].js',
+    path: buildPath,
+  },
+
   // https://webpack.js.org/concepts/loaders/
   module: {
     rules: [
@@ -90,9 +90,9 @@ module.exports = {
             interpolate: true,
             minimize: true,
             removeComments: false,
-            collapseWhitespace: false
-          }
-        }
+            collapseWhitespace: false,
+          },
+        },
       },
       {
         test: /\.json$/,
@@ -101,78 +101,80 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
-        test: /\.(ttf|eot|woff|woff2|otf)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'fonts/[name].[ext]'
-        }
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ],
       },
       {
         test: /\.(mp4)$/,
         loader: 'file-loader',
         options: {
-          name: 'videos/[name].[ext]'
-        }
+          name: 'videos/[name].[ext]',
+        },
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-          // Please note we are not running postcss here
-        ]
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
       },
       {
-        test: /\.svg/,
-        loader: 'svg-inline-loader'
+        test: /\.(png|jpg|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]',
+          publicPath: '/',
+        },
       },
       {
-        // Load all images as base64 encoding if they are smaller than 8192 bytes
-        test: /\.(png|jpg|gif|ico|xml|webmanifest)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              // On development we want to see where the file is coming from,
-              // hence we preserve the [path]
-              name: '[path][name].[ext]?hash=[hash:20]',
-              limit: 8192,
-              publicPath: '/',
-            }
-          }
-        ]
+        test: /\.(ico|xml|webmanifest|png|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'icons/[name].[ext]',
+        },
+      },
+      {
+        test: /\.(jpg|png|gif)$/,
+        loader: 'image-webpack-loader',
+        // Specify enforce: 'pre' to apply the loader
+        // before url-loader/svg-url-loader
+        // and not duplicate it in rules with them
+        enforce: 'pre',
+        options: {
+          disable: false, // webpack@2.x and newer
+          publicPath: '/',
+        },
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-        }, {
-          loader: 'sass-loader',
-          options: {
-            implementation: require('node-sass')
-          }
-        }],
+        use: [
+          // fallback to style-loader in development
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
 
   // https://webpack.js.org/concepts/plugins/
   plugins: [
-    new Dotenv({
-      safe: true,
-      systemvars: true,
-      silent: false,
-      defaults: false,
+    new CleanWebpackPlugin(), // cleans output.path by default
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css',
     }),
     new ImageminPlugin({
-      disable: false, // Disable during development
+      disable: true, // Disable during development
       pngquant: {
         quality: '95-100',
+      },
+      mozjpeg: {
+        progressive: true,
+        quality: 65,
       },
     }),
   ].concat(htmlPlugins),
@@ -184,5 +186,17 @@ module.exports = {
       svgs: path.resolve(__dirname, './src/svgs'),
       icons: path.resolve(__dirname, './src/icons'),
     },
+  },
+
+  // https://webpack.js.org/configuration/optimization/
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+      }),
+      new OptimizeCssAssetsPlugin({}),
+    ],
   },
 };

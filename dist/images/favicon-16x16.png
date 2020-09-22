@@ -1,0 +1,1 @@
+module.exports = __webpack_public_path__ + "icons/favicon-16x16.png";

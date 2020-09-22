@@ -17,7 +17,6 @@
     },
     "scripts": {
         "start": "webpack-dev-server --config webpack.dev.js --mode development",
-        "build-qa": "webpack --config webpack.qa.js --mode production",
         "build-prod": "webpack --config webpack.prod.js --mode production",
         "preview": "yarn run build && http-server dist",
         "test": "standard"
