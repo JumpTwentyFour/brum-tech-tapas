@@ -22,15 +22,6 @@
   .shadow-xl,
   .flex;
   content: '';
-  width: 0;
-  animation-delay: 0.2s;
-  animation-duration: 0.6s;
-}
-
-.contact .content.in-view .contact__box .contact__anim:before {
-  animation-name: width;
-  animation-fill-mode: forwards;
-  transition: width 0.3s ease-in-out;
 }
 
 .contact__form {
@@ -52,12 +43,3 @@
   white-space: nowrap;
 }
 
-.contact__form .field:first-child input {
-  animation-delay: 0.4s;
-  animation-duration: 0.4s;
-}
-
-.contact__form .field:nth-child(2) input {
-  animation-delay: 0.6s;
-  animation-duration: 0.4s;
-}
