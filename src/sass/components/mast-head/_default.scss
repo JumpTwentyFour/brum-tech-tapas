@@ -21,6 +21,9 @@
 
 .mast-head__image {
   @extend .margin-top-50;
+}
+
+.mast-head__image .animation-wrapper {
   padding-bottom: 50%;
 
   @include mq(sm) {

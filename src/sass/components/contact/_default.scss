@@ -2,11 +2,9 @@
   @extend .margin-top-10;
 }
 
-.contact__box:before {
+.contact__box .contact__anim {
   @extend .absolute,
-  .bg-french-rose,
-  .shadow-xl;
-  content: '';
+  .flex;
   width: calc(100% + 80px);
   height: 100%;
   left: -40px;
@@ -17,6 +15,13 @@
     width: calc(100% + 60px);
     left: -30px;
   }
+}
+
+.contact__box .contact__anim:before {
+  @extend .bg-french-rose,
+  .shadow-xl,
+  .flex;
+  content: '';
 }
 
 .contact__form {
@@ -30,3 +35,11 @@
 .contact__form .field--button {
   @extend .margin-bottom-0;
 }
+
+.contact__form input {
+  @extend .padding-left-0,
+  .padding-right-0;
+  text-indent: 20px;
+  white-space: nowrap;
+}
+

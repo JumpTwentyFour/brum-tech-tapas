@@ -1,0 +1,23 @@
+.js .speakers__item .animation-wrapper {
+  animation-duration: 0.4s;
+}
+
+.js .speakers__item:nth-child(even) .animation-wrapper {
+  animation-delay: 0.1s;
+}
+
+.js .speakers__item:nth-child(even) .animation-wrapper {
+  animation-delay: 0.3s;
+}
+
+.js .speakers__title {
+  animation-duration: 0.6s;
+}
+
+.js .speakers__item:nth-child(even) .animation-transformX {
+  animation-delay: 0.3s;
+}
+
+.js .speakers__item:nth-child(even) .animation-transformX {
+  animation-delay: 0.5s;
+}

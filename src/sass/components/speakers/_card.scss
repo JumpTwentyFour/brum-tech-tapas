@@ -55,6 +55,10 @@
 
 .speakers__image {
   @extend .pointer-none;
+}
+
+.speakers__image .animation-wrapper {
+  @extend .pointer-none;
   padding-bottom: 100%;
 }
 
