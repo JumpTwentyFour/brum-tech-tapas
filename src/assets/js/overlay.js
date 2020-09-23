@@ -87,7 +87,7 @@ export default class Overlay {
     document.body.style.removeProperty('top');
 
     const speakers = document.querySelectorAll('.overlay');
-    console.log(speakers);
+
     if (speakers.length > 0) {
       window.scrollTo(0, this.offsetY);
 

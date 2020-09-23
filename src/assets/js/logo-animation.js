@@ -1,10 +1,12 @@
 import lottie from 'lottie-web';
+
 require('intersection-observer');
 const path = require('path');
+const animationJson = require('./logo.json');
 
 export default class LogoAnimation {
-
   animObj = null;
+
   animContainer = document.getElementById('about__image');
 
   init = () => {
@@ -19,7 +21,8 @@ export default class LogoAnimation {
       renderer: 'svg',
       loop: false,
       autoplay: true,
-      path: path.resolve(__dirname, 'dist/logo.json')
+      animationData: animationJson,
+
     });
   };
 
