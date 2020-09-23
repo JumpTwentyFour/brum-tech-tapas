@@ -1,21 +1,21 @@
-const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // installed via npm
 
 const buildPath = path.resolve(__dirname, 'dist');
 const pagesPath = path.resolve(__dirname, 'src/views/pages');
-const S3Uploader = require('webpack-s3-uploader');
-
 let files = null;
 
 // We need Nodes fs module to read directory contents
 const fs = require('fs');
 
 function getFileNameAndFolder(file) {
-  const reformattedFile = file.replace(pagesPath, buildPath);
-  return reformattedFile;
+  return file.replace(pagesPath, buildPath);
 }
 
 function returnHtmlWebpackPlugin(file) {
@@ -48,7 +48,9 @@ function generateHtmlPlugins(templateDir) {
   // Read files in template directory
   const templateFiles = getAllFiles(templateDir);
 
-  const htmlPluginsStart = templateFiles.map(file => returnHtmlWebpackPlugin(file));
+  const htmlPluginsStart = templateFiles.map(
+    file => returnHtmlWebpackPlugin(file),
+  );
 
   const htmlPlugins = htmlPluginsStart.reduce((result, element) => {
     if (element !== null) {
@@ -63,9 +65,10 @@ function generateHtmlPlugins(templateDir) {
 const htmlPlugins = generateHtmlPlugins('./src/views/pages/');
 
 module.exports = {
+  mode: 'production',
   // This option controls if and how source maps are generated.
   // https://webpack.js.org/configuration/devtool/
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'source-map',
   node: {
     fs: 'empty',
   },
@@ -73,13 +76,11 @@ module.exports = {
   entry: {
     index: './src/assets/js/main.js',
   },
-  // https://webpack.js.org/configuration/dev-server/
-  devServer: {
-    http2: true,
-    host: '0.0.0.0',
-    port: 8888,
-    disableHostCheck: true,
-    writeToDisk: false, // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+  // how to write the compiled files to disk
+  // https://webpack.js.org/concepts/output/
+  output: {
+    filename: '[name].[hash:20].js',
+    path: buildPath,
   },
   // https://webpack.js.org/concepts/loaders/
   module: {
@@ -97,6 +98,7 @@ module.exports = {
           },
         },
       },
+
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -119,7 +121,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           // Please note we are not running postcss here
         ],
@@ -138,24 +140,31 @@ module.exports = {
               // On development we want to see where the file is coming from,
               // hence we preserve the [path]
               name: '[path][name].[ext]?hash=[hash:20]',
-              limit: 8192,
-              publicPath: '/',
+              publicPath: `${buildPath}/`,
             },
           },
         ],
       },
       {
+        test: /\.(jpg|png|gif)$/,
+        loader: 'image-webpack-loader',
+        // Specify enforce: 'pre' to apply the loader
+        // before url-loader/svg-url-loader
+        // and not duplicate it in rules with them
+        enforce: 'pre',
+        options: {
+          disable: false, // webpack@2.x and newer
+          publicPath: '/',
+        },
+      },
+      {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-        }, {
-          loader: 'sass-loader',
-          options: {
-            implementation: require('node-sass'),
-          },
-        }],
+        use: [
+          // fallback to style-loader in development
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
@@ -169,12 +178,31 @@ module.exports = {
       defaults: false,
     }),
     new ImageminPlugin({
-      disable: false, // Disable during development
+      disable: true, // Disable during development
       pngquant: {
         quality: '95-100',
       },
+      mozjpeg: {
+        progressive: true,
+        quality: 65,
+      },
+    }),
+    new CleanWebpackPlugin(), // cleans output.path by default
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css',
     }),
   ].concat(htmlPlugins),
+  // https://webpack.js.org/configuration/optimization/
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+      }),
+      new OptimizeCssAssetsPlugin({}),
+    ],
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src/assets'),
