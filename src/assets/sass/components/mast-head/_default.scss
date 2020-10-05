@@ -1,0 +1,33 @@
+.mast-head {
+  @extend .padding-top-60,
+  .padding-bottom-100;
+
+  @include mq(m) {
+    @extend .m-padding-top-40,
+    .m-padding-bottom-60;
+  }
+  @include mq(sm) {
+    @extend .sm-padding-bottom-40;
+  }
+}
+
+.mast-head__copy {
+  @extend .padding-top-30;
+}
+
+.mast-head__copy p {
+  @extend .body-large;
+}
+
+.mast-head__image {
+  @extend .margin-top-50;
+}
+
+.mast-head__image .animation-wrapper {
+  padding-bottom: 50%;
+
+  @include mq(sm) {
+    padding-bottom: 109%;
+  }
+}
+

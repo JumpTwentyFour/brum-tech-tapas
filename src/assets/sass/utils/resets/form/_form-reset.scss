@@ -1,0 +1,15 @@
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='password'],
+input[type="date"],
+input[type="search"],
+input[type="file"],
+textarea,
+select,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  border: 0;
+}

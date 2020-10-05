@@ -1,0 +1,92 @@
+$fontStyles: (
+  golden-rule: 130,
+  header-one: (
+    xl: (
+      font-size: 9.6,
+    ),
+    l: (
+      font-size: 8.4,
+      line-height-rule: 120,
+    ),
+    m: (
+      font-size: 6.2
+    ),
+    sm: (
+      font-size: 5.8
+    )
+  ),
+  header-two: (
+    xl: (
+      font-size: 8.4,
+      line-height-rule: 120,
+    ),
+    l: (
+      font-size: 7.2
+    ),
+    m: (
+      font-size: 5.4
+    ),
+    sm: (
+      font-size: 5
+    ),
+  ),
+  header-three: (
+    xl: (
+      font-size: 6.2
+    ),
+  ),
+  header-four: (
+    xl: (
+      font-size: 4.4
+    ),
+    l: (
+      font-size: 3.8
+    ),
+    m: (
+      font-size: 3.2
+    ),
+    sm: (
+      font-size: 2.8
+    )
+  ),
+  header-five: (
+    xl: (
+      font-size: 2.8
+    ),
+    l: (
+      font-size: 2.4
+    ),
+    sm: (
+      font-size: 1.8
+    ),
+  ),
+  body-large: (
+    xl: (
+      font-size: 2.4
+    ),
+    m: (
+      font-size: 2.2
+    ),
+    sm: (
+      font-size: 2
+    )
+  ),
+  body-medium: (
+    xl: (
+      font-size: 2
+    ),
+    sm: (
+      font-size: 1.8
+    )
+  ),
+  body-reg: (
+    xl: (
+      font-size: 1.8
+    ),
+  ),
+  body-small: (
+    xl: (
+      font-size: 1.4
+    ),
+  ),
+);

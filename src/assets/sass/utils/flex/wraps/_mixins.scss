@@ -1,0 +1,25 @@
+/* FLEX WRAP MIXINS ============================================================================= */
+
+@mixin wrap() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $wrap in $wraps {
+      @if $size == 'xl' {
+        .#{$name} {
+          flex-wrap: $wrap;
+        }
+        @include placeholder(#{$name}) {
+          flex-wrap: $wrap;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-#{$name} {
+            flex-wrap: $wrap;
+          }
+        }
+        @include placeholder(#{$size}-#{$name}) {
+          flex-wrap: $wrap;
+        }
+      }
+    }
+  }
+}

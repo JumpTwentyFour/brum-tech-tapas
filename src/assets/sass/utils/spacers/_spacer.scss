@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixins';
+
+@include spacer(margin, null);
+
+@include spacer(margin, top);
+
+@include spacer(margin, bottom);
+
+@include spacer(margin, left);
+
+@include spacer(margin, right);
+
+@include spacer(padding, null);
+
+@include spacer(padding, top);
+
+@include spacer(padding, bottom);
+
+@include spacer(padding, left);
+
+@include spacer(padding, right);

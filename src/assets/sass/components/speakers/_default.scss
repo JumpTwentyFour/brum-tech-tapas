@@ -1,0 +1,21 @@
+.speakers__header {
+  @extend .margin-bottom-40;
+
+  @include mq(sm) {
+    @extend .sm-margin-bottom-20;
+  }
+}
+
+.speakers__intro {
+  @extend .margin-bottom-30;
+}
+
+.speakers__intro p {
+  @extend .body-medium;
+}
+
+.speakers__header,
+.speakers__intro {
+  animation-duration: 0.8s;
+  animation-delay: 0.2s;
+}

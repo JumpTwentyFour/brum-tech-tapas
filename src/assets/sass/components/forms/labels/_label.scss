@@ -1,0 +1,10 @@
+.label {
+  @extend .body-medium,
+  .color-cloudburst,
+  .font-sofia-med,
+  .margin-bottom-10;
+}
+
+.label sup {
+  @extend .color-athens-grey;
+}

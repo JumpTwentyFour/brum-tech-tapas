@@ -1,0 +1,13 @@
+.form-btn {
+  @extend .flex,
+  .justify-content-center,
+  .align-items-center,
+  .bg-french-rose;
+  width: 50px;
+  height: 50px;
+}
+
+.form-btn .icon svg {
+  max-width: 18px;
+  width: 100%;
+}

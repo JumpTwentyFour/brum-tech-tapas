@@ -1,0 +1,25 @@
+/* TEXT ALIGNMENT MIXINS ============================================================================= */
+
+@mixin textAlign() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $align in $textAlignment {
+      @if $size == 'xl' {
+        .text-#{$name} {
+          text-align: $align;
+        }
+        @include placeholder(text-#{$name}) {
+          text-align: $align;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-text-#{$name} {
+            text-align: $align;
+          }
+        }
+        @include placeholder(#{$size}-text-#{$name}) {
+          text-align: $align;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.section {
+  @extend .padding-top-100,
+  .padding-bottom-100;
+
+  @include mq(m) {
+    @extend .m-padding-top-60,
+    .m-padding-bottom-60;
+  }
+  @include mq(sm) {
+    @extend .sm-padding-top-40,
+    .sm-padding-bottom-40;
+  }
+}

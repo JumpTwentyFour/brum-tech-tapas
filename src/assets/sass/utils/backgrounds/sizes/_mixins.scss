@@ -1,0 +1,25 @@
+/* BG SIZES MIXINS ============================================================================= */
+
+@mixin bgSize() {
+  @each $size, $breakpoint in $breakpoints {
+    @each $name, $bgSize in $bgSizes {
+      @if $size == 'xl' {
+        .bg-#{$name} {
+          background-size: $bgSize;
+        }
+        @include placeholder(bg-#{$name}) {
+          background-size: $bgSize;
+        }
+      } @else {
+        @include mq($size) {
+          .#{$size}-bg-#{$name} {
+            background-size: $bgSize;
+          }
+        }
+        @include placeholder(#{$size}-bg-#{$name}) {
+          background-size: $bgSize;
+        }
+      }
+    }
+  }
+}

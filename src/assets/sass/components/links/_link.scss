@@ -1,0 +1,39 @@
+.link {
+  @extend .font-sofia-semi,
+  .relative;
+}
+
+.link:after {
+  @extend .absolute,
+  .bg-french-rose;
+  content: '';
+  width: 100%;
+  height: 2px;
+  right: 0;
+  bottom: -1px;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+}
+
+.link:focus:after,
+.link:hover:after {
+  animation-name: link;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes link {
+  0% {
+    right: 0;
+    width: 100%;
+  }
+  50% {
+    width: 0;
+  }
+  100% {
+    left: 0;
+    width: 100%;
+  }
+}

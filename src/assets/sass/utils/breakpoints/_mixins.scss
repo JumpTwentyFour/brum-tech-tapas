@@ -1,0 +1,66 @@
+@mixin mq($breakpoint) {
+  // Get the width from the keyword `$mediaSizes`
+  // Or `null` if the keyword doesn't exist in `$mediaSize` map
+  $value: map-get($breakpoints, $breakpoint);
+
+  // If `$breakpoint` exists as a key in `$mediaSizes`
+  @if $value != null {
+    // Update `$current-breakpoint`
+    $current-breakpoint: $breakpoint !global;
+
+    // Open a media query block
+    @media (max-width: $value) {
+      // Let the user dump content
+      @content;
+    }
+
+    // Then reset `$current-breakpoint` to `$default-breakpoint` (root)
+    $current-breakpoint: $default-breakpoint !global;
+  }
+
+    // If `$breakpoint` doesn't exist in `$mediaSizes`,
+    // Warn the user and do nothing
+  @else {
+    @warn "Invalid breakpoint `#{$breakpoint}`.";
+  }
+}
+
+
+@mixin placeholder($name) {
+  // If placeholder doesn't exist yet in `$placeholders` list
+  @if not index($placeholders, $name) {
+    // Store its name
+    $placeholders: append($placeholders, $name) !global;
+
+    // At root level
+    @at-root {
+      // Looping through `$breakpoints`
+      @each $breakpoint, $value in $breakpoints {
+        // Opening a media query block
+        @media (max-width: $value) {
+          // Generating a placeholder
+          // Called $name-$breakpoint
+          %#{$name}-#{$breakpoint} {
+            @content;
+          }
+        }
+      }
+
+      // And dumping a placeholder out of any media query as well
+      // so basically at root level
+      %#{$name}-#{$default-breakpoint} {
+        @content;
+      }
+    }
+  }
+
+    // If placeholder already exists, just warn the user
+  @else {
+    @warn "Placeholder `#{$name}` already exists.";
+  }
+}
+
+
+@mixin _($name) {
+  @extend %#{$name}-#{$current-breakpoint} !optional;
+}
