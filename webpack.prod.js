@@ -6,6 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // installed via npm
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 const pagesPath = path.resolve(__dirname, 'src/views/pages');
@@ -132,7 +133,7 @@ module.exports = {
       },
       {
         // Load all images as base64 encoding if they are smaller than 8192 bytes
-        test: /\.(png|jpg|gif|ico|xml|webmanifest)$/,
+        test: /\.(png|jpg|gif|webp|ico|xml|webmanifest)$/,
         use: [
           {
             loader: 'url-loader',
@@ -146,7 +147,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jpg|png|gif|webp)$/,
         loader: 'image-webpack-loader',
         // Specify enforce: 'pre' to apply the loader
         // before url-loader/svg-url-loader
