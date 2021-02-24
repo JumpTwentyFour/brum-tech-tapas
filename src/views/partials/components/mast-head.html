@@ -22,14 +22,13 @@
       >
         <div class="animation-wrapper animation-width bg-athens-grey shadow-xl img">
           <picture>
-            <source srcset="${require('@/images/birmingham.webp')}" type="image/webp">
-            <source srcset="${require('@/images/birmingham.jpg')}" type="image/jpeg">
+            <source srcset="${require('@/images/birmingham.webp')}" type="image/webp" class="width-full img__absolute" >
+            <source srcset="${require('@/images/birmingham.jpg')}" type="image/jpeg" class="width-full img__absolute" >
             <img src="${require('@/images/birmingham.jpg')}"
                  alt=""
                  class="width-full img__absolute" />
           </picture>
-
-          />
+          <p class="mast-head__image-attribution">Photo by <a href="https://www.raphaellionelphotography.com/" target="_blank">Raphael Lionel Photography</a></p>
         </div>
       </div>
     </div>
