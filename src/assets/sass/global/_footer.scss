@@ -71,6 +71,9 @@
 
 .site-footer__social .social__item {
   @extend .margin-left-10;
+  @extend .color-cloudburst,
+  .font-sofia-med,
+  .body-small,
 }
 
 .site-footer__social .svg-twitter {
