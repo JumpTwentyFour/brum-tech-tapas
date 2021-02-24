@@ -27,7 +27,12 @@
   padding-bottom: 50%;
 
   @include mq(sm) {
-    padding-bottom: 109%;
+    padding-bottom: 66%;
   }
 }
 
+.mast-head__image-attribution {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}

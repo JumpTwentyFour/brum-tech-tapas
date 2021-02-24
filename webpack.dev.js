@@ -1,13 +1,15 @@
-const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // installed via npm
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 const pagesPath = path.resolve(__dirname, 'src/views/pages');
-const S3Uploader = require('webpack-s3-uploader');
-
 let files = null;
 
 // We need Nodes fs module to read directory contents
@@ -130,7 +132,7 @@ module.exports = {
       },
       {
         // Load all images as base64 encoding if they are smaller than 8192 bytes
-        test: /\.(png|jpg|gif|ico|xml|webmanifest)$/,
+        test: /\.(png|jpg|gif|webp|ico|xml|webmanifest)$/,
         use: [
           {
             loader: 'url-loader',
@@ -143,6 +145,18 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(jpg|png|gif|webp)$/,
+        loader: 'image-webpack-loader',
+        // Specify enforce: 'pre' to apply the loader
+        // before url-loader/svg-url-loader
+        // and not duplicate it in rules with them
+        enforce: 'pre',
+        options: {
+          disable: false, // webpack@2.x and newer
+          publicPath: '/',
+        },
       },
       {
         test: /\.scss$/,
