@@ -16,7 +16,15 @@
   }
 }
 
+.site-menu {
+  display: flex;
+}
+
 .site-menu__link {
   @extend .body-reg;
   top: -2px;
+}
+
+.site-menu__item {
+  margin-right: 15px;
 }
