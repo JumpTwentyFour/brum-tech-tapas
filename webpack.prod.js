@@ -8,7 +8,7 @@ const Dotenv = require('dotenv-webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // installed via npm
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
-const buildPath = path.resolve(__dirname, 'current/dist');
+const buildPath = path.resolve(__dirname, 'dist');
 const pagesPath = path.resolve(__dirname, 'src/views/pages');
 let files = null;
 
