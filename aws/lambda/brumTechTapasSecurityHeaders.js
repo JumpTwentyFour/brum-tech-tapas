@@ -1,4 +1,4 @@
-'use strict';
+
 
 /**
  * Adding security headers to responses from CloudFront with Lambda@Edge
@@ -10,14 +10,14 @@
  */
 exports.handler = async (event) => {
   // Get headers for our response so we can add to them
-  const response = event.Records[0].cf.response;
+  const { response } = event.Records[0].cf;
 
   /**
    * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
    */
   response.headers['content-security-policy'] = [{
     key: 'Content-Security-Policy',
-    value: "default-src 'none'; base-uri 'self'; connect-src 'self' https://performance.typekit.net https://www.google-analytics.com; font-src 'self' data: https://use.typekit.net; form-action 'self'; frame-ancestors 'self'; frame-src 'self'; img-src 'self' data: https://p.typekit.net https://www.google-analytics.com; media-src 'self'; object-src 'none'; script-src 'self' 'sha256-jEKeIZhl4a389+P5khwn9QmdZoDUXNSlnXFcMMiAgKE=' 'sha256-P8uWzx7pLBxmCA9WLO74dc29z9uHZ9SjiXeqjj3+F14=' https://use.typekit.net https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://p.typekit.net https://use.typekit.net"
+    value: "default-src 'none'; base-uri 'self'; connect-src 'self' https://performance.typekit.net font-src 'self' data: https://use.typekit.net; form-action 'self'; frame-ancestors 'self'; frame-src 'self'; img-src 'self' data: https://p.typekit.net; media-src 'self'; object-src 'none'; script-src 'self' 'sha256-jEKeIZhl4a389+P5khwn9QmdZoDUXNSlnXFcMMiAgKE=' 'sha256-P8uWzx7pLBxmCA9WLO74dc29z9uHZ9SjiXeqjj3+F14=' https://use.typekit.net; style-src 'self' 'unsafe-inline' https://p.typekit.net https://use.typekit.net",
   }];
 
   /**
@@ -25,7 +25,7 @@ exports.handler = async (event) => {
    */
   response.headers['cross-origin-embedder-policy'] = [{
     key: 'Cross-Origin-Embedder-Policy',
-    value: 'unsafe-none'
+    value: 'unsafe-none',
   }];
 
   /**
@@ -33,7 +33,7 @@ exports.handler = async (event) => {
    */
   response.headers['cross-origin-opener-policy'] = [{
     key: 'Cross-Origin-Opener-Policy',
-    value: 'same-origin'
+    value: 'same-origin',
   }];
 
   /**
@@ -41,7 +41,7 @@ exports.handler = async (event) => {
    */
   response.headers['cross-origin-resource-policy'] = [{
     key: 'Cross-Origin-Resource-Policy',
-    value: 'same-origin'
+    value: 'same-origin',
   }];
 
   /**
@@ -49,7 +49,7 @@ exports.handler = async (event) => {
    */
   response.headers['expect-ct'] = [{
     key: 'Expect-CT',
-    value: 'max-age=86400'
+    value: 'max-age=86400',
   }];
 
   /**
@@ -58,7 +58,7 @@ exports.handler = async (event) => {
    */
   response.headers['permissions-policy'] = [{
     key: 'Permissions-Policy',
-    value: "accelerometer=(), camera=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    value: 'accelerometer=(), camera=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()',
   }];
 
   /**
@@ -66,15 +66,15 @@ exports.handler = async (event) => {
    */
   response.headers['referrer-policy'] = [{
     key: 'Referrer-Policy',
-    value: 'same-origin'
+    value: 'same-origin',
   }];
 
   /**
    * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server
    */
-  response.headers['server'] = [{
+  response.headers.server = [{
     key: 'Server',
-    value: ''
+    value: '',
   }];
 
   /**
@@ -82,7 +82,7 @@ exports.handler = async (event) => {
    */
   response.headers['strict-transport-security'] = [{
     key: 'Strict-Transport-Security',
-    value: 'max-age=31536000; includeSubdomains; preload'
+    value: 'max-age=31536000; includeSubdomains; preload',
   }];
 
   /**
@@ -90,7 +90,7 @@ exports.handler = async (event) => {
    */
   response.headers['x-content-type-options'] = [{
     key: 'X-Content-Type-Options',
-    value: 'nosniff'
+    value: 'nosniff',
   }];
 
   /**
@@ -98,7 +98,7 @@ exports.handler = async (event) => {
    */
   response.headers['x-dns-prefetch-control'] = [{
     key: 'X-DNS-Prefetch-Control',
-    value: 'on'
+    value: 'on',
   }];
 
   /**
@@ -106,7 +106,7 @@ exports.handler = async (event) => {
    */
   response.headers['x-download-options'] = [{
     key: 'X-Download-Options',
-    value: 'noopen'
+    value: 'noopen',
   }];
 
   /**
@@ -114,7 +114,7 @@ exports.handler = async (event) => {
    */
   response.headers['x-frame-options'] = [{
     key: 'X-Frame-Options',
-    value: 'SAMEORIGIN'
+    value: 'SAMEORIGIN',
   }];
 
   /**
@@ -122,7 +122,7 @@ exports.handler = async (event) => {
    */
   response.headers['x-permitted-cross-domain-policies'] = [{
     key: 'X-Permitted-Cross-Domain-Policies',
-    value: 'none'
+    value: 'none',
   }];
 
   /**
@@ -130,7 +130,7 @@ exports.handler = async (event) => {
    */
   response.headers['x-xss-protection'] = [{
     key: 'X-XSS-Protection',
-    value: '1; mode=block'
+    value: '1; mode=block',
   }];
 
   // Return modified response
