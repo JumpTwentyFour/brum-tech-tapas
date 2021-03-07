@@ -21,3 +21,4 @@ yarn-error.log
 # due to security issues picked up on a previous project.
 package-lock.json
 
+/.env

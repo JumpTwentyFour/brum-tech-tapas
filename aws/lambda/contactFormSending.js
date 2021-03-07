@@ -37,7 +37,7 @@ function sendEmail(event, done) {
         },
       },
       Subject: {
-        Data: `Website Referral Form: ${event.name}`,
+        Data: `Brum Tech Tapas Contact: ${event.name}`,
         Charset: 'UTF-8',
       },
     },
