@@ -78,9 +78,15 @@ const TellUsMore = class TellUsMore {
     signUpApi
       .signUp(this.formatDataForApi())
       .then((response) => {
+        this.clearForm();
         this.showThanksMessage();
       })
       .catch((response) => {});
+  }
+
+  clearForm = () => {
+    this.signUpName.value = '';
+    this.signUpEmail.value = '';
   }
 
   showThanksMessage = () => {
