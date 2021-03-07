@@ -69,14 +69,10 @@ const TellUsMore = class TellUsMore {
     return this.failedValidation.length === 0;
   }
 
-  formatDataForApi = () => {
-    const interests = {};
-
-    return {
-      name: this.signUpName.value,
-      email: this.signUpEmail.value,
-    };
-  }
+  formatDataForApi = () => ({
+    name: this.signUpName.value,
+    email: this.signUpEmail.value,
+  })
 
   submitForm = () => {
     signUpApi
