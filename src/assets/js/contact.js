@@ -13,7 +13,6 @@ const TellUsMore = class TellUsMore {
 
   setupObservers = () => {
     this.signUpTrigger.forEach((trigger) => {
-      console.log('erere');
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         this.resetForm();
