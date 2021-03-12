@@ -13,6 +13,8 @@ const TellUsMore = class TellUsMore {
 
   formTitle = document.getElementById('js-form-title')
 
+  formContainer = document.getElementById('js-contact-form')
+
   formFields = this.formContainer.querySelectorAll('.field')
 
   formMessage = document.getElementById('js-form-message')
@@ -102,10 +104,10 @@ const TellUsMore = class TellUsMore {
     this.formHeader.classList.remove('col-span-7', 'col-start-3', 'm-col-start-2', 'm-col-span-9');
     this.formHeader.classList.add('col-span-5', 'col-start-5', 'm-col-start-5', 'm-col-span-5');
 
-    this.formFields.forEach( (formFields) => {
+    this.formFields.forEach((formFields) => {
       formFields.style.opacity = '0';
       formFields.style.visibility = 'hidden';
-    })
+    });
 
     this.formMessage.classList.add('visible');
   }
