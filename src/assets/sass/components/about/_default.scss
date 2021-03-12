@@ -21,6 +21,7 @@
 
 .about__image {
   @extend .inline-flex,
+  .flex-col,
   .align-self-center,
   .align-items-center;
 }

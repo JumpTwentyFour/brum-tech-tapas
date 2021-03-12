@@ -72,8 +72,12 @@
 .site-footer__social .social__item {
   @extend .margin-left-10;
   @extend .color-cloudburst,
-  .font-sofia-med,
+  .font-sofia-semi,
   .body-small,
+}
+
+.site-footer__social .social__item:first-child {
+  @extend .margin-right-20;
 }
 
 .site-footer__social .svg-twitter {
