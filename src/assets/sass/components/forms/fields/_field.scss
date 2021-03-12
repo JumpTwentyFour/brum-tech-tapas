@@ -1,7 +1,12 @@
 .field {
   @extend .flex,
   .flex-col,
-  .margin-bottom-30;
+  .margin-bottom-30,
+  .opacity-1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+
+  will-change: opacity, visibility;
 }
 
 .field:not(.field--button):last-child {

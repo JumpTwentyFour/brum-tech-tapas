@@ -9,6 +9,14 @@ const TellUsMore = class TellUsMore {
 
   signUpTrigger = document.querySelectorAll('.js-form-btn')
 
+  formTitle = document.getElementById('js-form-title')
+
+  formContainer = document.getElementById('js-contact-form')
+
+  formFields = this.formContainer.querySelectorAll('.field')
+
+  formMessage = document.getElementById('js-form-message')
+
   failedValidation = []
 
   setupObservers = () => {
@@ -89,9 +97,14 @@ const TellUsMore = class TellUsMore {
   }
 
   showThanksMessage = () => {
-    this.thankYou
-      .closest('.overlay__thanks')
-      .classList.add('overlay__thanks--show');
+    this.formTitle.innerText = 'Thank you';
+
+    this.formFields.forEach( (formFields) => {
+      formFields.style.opacity = '0';
+      formFields.style.visibility = 'hidden';
+    })
+
+    this.formMessage.classList.add('visible');
   }
 
   init = () => {
