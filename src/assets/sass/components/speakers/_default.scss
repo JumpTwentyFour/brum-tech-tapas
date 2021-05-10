@@ -43,3 +43,17 @@
   left: 0;
   height: 34px;
 }
+
+.speakers__time svg {
+  @extend .margin-right-5,
+  .margin-left-10;
+  width: 30px;
+}
+
+.speakers__time svg circle {
+  fill: transparent !important;
+}
+
+.speakers__time svg path {
+  fill: $cloudburst !important;
+}
