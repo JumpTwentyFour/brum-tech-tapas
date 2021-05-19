@@ -2,8 +2,8 @@ const AWS = require('aws-sdk');
 
 const ses = new AWS.SES();
 
-const RECEIVER = 'brumtechtapas@jump24.co.uk';
-const SENDER = 'brumtechtapas@jump24.co.uk';
+const RECEIVER = 'events@brumtechtapas.co.uk';
+const SENDER = 'events@brumtechtapas.co.uk';
 
 function sendEmail(event, done) {
   const params = {
@@ -15,7 +15,7 @@ function sendEmail(event, done) {
     Message: {
       Body: {
         Text: {
-          Data: `name: ${event.name}\nemail: ${event.email}\n`,
+          Data: `name: ${event.name}\nemail: ${event.email}\nreason: ${event.reason}\n`,
           Charset: 'UTF-8',
         },
       },
@@ -31,7 +31,6 @@ function sendEmail(event, done) {
 
 
 exports.handler = function (event, context) {
-  console.log('Received event:', event);
   sendEmail(event, (err, data) => {
     context.done(err, null);
   });

@@ -7,6 +7,8 @@ const TellUsMore = class TellUsMore {
 
   signUpName = document.getElementById('name')
 
+  reason = document.getElementById('reason')
+
   signUpTrigger = document.querySelectorAll('.js-form-btn')
 
   formHeader = document.getElementById('js-form-header')
@@ -67,6 +69,11 @@ const TellUsMore = class TellUsMore {
       this.setErrorMessage(this.signUpName, 'Please enter a valid full name.');
     }
 
+    if (this.reason.value.length === 0) {
+      this.failedValidation.push(this.reason);
+      this.setErrorMessage(this.reason, 'Please select an option.');
+    }
+
     if (!isEmail(this.signUpEmail.value)) {
       this.failedValidation.push(this.signUpEmail);
       this.setErrorMessage(
@@ -81,6 +88,7 @@ const TellUsMore = class TellUsMore {
   formatDataForApi = () => ({
     name: this.signUpName.value,
     email: this.signUpEmail.value,
+    reason: this.reason.value,
   })
 
   submitForm = () => {
