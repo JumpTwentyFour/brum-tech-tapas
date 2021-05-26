@@ -1,9 +1,0 @@
-/* LETTER SPACING MIXINS ============================================================================= */
-
-@function letterSpacing($target){
-  @return (1 / $target) * 1em;
-}
-
-@mixin letterSpacing($target){
-  letter-spacing: letterSpacing($target);
-}
