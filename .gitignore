@@ -1,0 +1,37 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+
+# Node / Yarn
+/node_modules/
+
+# NPM Error Logs
+npm-debug.log
+
+# Ignore Yarn (use NPM)
+yarn-error.log
+yarn.lock
+
+# WordPress Uploads Folder
+/wordpress/wp-content/uploads/
+
+# WordFence Configuration Files
+/wordpress/.user.ini
+/wordpress/wordfence-waf.php
+/wordpress/wp-content/wflogs/
+
+# Root / Top-level composer Vendor Folder
+# (WordPress Plugins may actually need their internal vendor folders)
+/vendor/
+
+# Environment Variables
+.env

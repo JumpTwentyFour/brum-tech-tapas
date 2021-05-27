@@ -1,0 +1,70 @@
+# https://docs.docker.com/compose/compose-file/#/versioning
+version: '3.8'
+
+services:
+    nginx:
+        # https://hub.docker.com/_/nginx
+        container_name: brumtechtapas_nginx
+        build: ./docker/nginx
+        depends_on:
+            - php
+        volumes:
+            - ./:/var/www/brumtechtapas/:cached
+        ports:
+            - '80:80'
+            - '443:443'
+        networks:
+            docker_network:
+                aliases:
+                    - brumtechtapas-wordpress.local
+                    - brumtechtapas-static.local
+
+    php:
+        # https://hub.docker.com/_/php
+        container_name: brumtechtapas_php
+        build: ./docker/php
+        environment:
+            COMPOSER_MEMORY_LIMIT: '-1'
+        volumes:
+            - ./:/var/www/brumtechtapas/:cached
+        networks:
+            - docker_network
+
+    node:
+        container_name: brumtechtapas_node
+        image: "node:16.2"
+        user: "node"
+        environment:
+            - NODE_ENV=development
+        volumes:
+            - ./:/var/www/brumtechtapas/:cached
+        networks:
+            - docker_network
+        working_dir: /var/www/brumtechtapas/
+        command: "npm install"
+
+    mysql:
+        # https://hub.docker.com/_/mysql
+        container_name: brumtechtapas_mysql
+        image: mysql/mysql-server:8.0
+        environment:
+            MYSQL_ROOT_HOST:     '%'
+            MYSQL_ROOT_PASSWORD: 'root'
+            MYSQL_USER:          'brumtechtapas'
+            MYSQL_PASSWORD:      'brumtechtapas'
+            MYSQL_DATABASE:      'brumtechtapas_development'
+        volumes:
+            - brumtechtapas-mysql-data-volume:/var/lib/mysql
+            - ./docker/mysql/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/:cached
+        ports:
+            - '3306:3306'
+        networks:
+            - docker_network
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+volumes:
+    brumtechtapas-mysql-data-volume:
+
+networks:
+    docker_network:
+        driver: bridge
