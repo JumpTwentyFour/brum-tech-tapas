@@ -26,7 +26,7 @@ module.exports = (env, argv) => {
 
     // https://webpack.js.org/concepts/entry-points/#multi-page-application
     entry: {
-      index: './wordpress/public/wp-content/themes/brumtechtapas/src/js/main.js',
+      index: './wordpress/wp-content/themes/brumtechtapas/src/js/main.js',
     },
 
     node: {
@@ -37,7 +37,7 @@ module.exports = (env, argv) => {
     // https://webpack.js.org/concepts/output/
     output: {
       filename: 'main.js',
-      path: path.resolve(__dirname, './wordpress/public/wp-content/themes/brumtechtapas/dist/'),
+      path: path.resolve(__dirname, './wordpress/wp-content/themes/brumtechtapas/dist/'),
     },
 
     // https://webpack.js.org/concepts/loaders/
@@ -113,7 +113,7 @@ module.exports = (env, argv) => {
     ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './wordpress/public/wp-content/themes/brumtechtapas/src/'),
+        '@': path.resolve(__dirname, './wordpress/wp-content/themes/brumtechtapas/src/'),
       },
     },
 

@@ -18,8 +18,8 @@
     },
     "scripts": {
         "build": "webpack --mode production && npm run copy-icons && npm run copy-svgs",
-        "copy-icons": "rm -rf wordpress/public/wp-content/themes/brumtechtapas/dist/icons && cp -R wordpress/public/wp-content/themes/brumtechtapas/src/icons wordpress/public/wp-content/themes/brumtechtapas/dist/icons/",
-        "copy-svgs": "rm -rf wordpress/public/wp-content/themes/brumtechtapas/dist/svgs && cp -R wordpress/public/wp-content/themes/brumtechtapas/src/svgs wordpress/public/wp-content/themes/brumtechtapas/dist/svgs/",
+        "copy-icons": "rm -rf wordpress/wp-content/themes/brumtechtapas/dist/icons && cp -R wordpress/wp-content/themes/brumtechtapas/src/icons wordpress/wp-content/themes/brumtechtapas/dist/icons/",
+        "copy-svgs": "rm -rf wordpress/wp-content/themes/brumtechtapas/dist/svgs && cp -R wordpress/wp-content/themes/brumtechtapas/src/svgs wordpress/wp-content/themes/brumtechtapas/dist/svgs/",
         "ie": "npm run copy-icons && npm run copy-svgs && webpack --mode none --watch --progress",
         "start": "npm run copy-icons && npm run copy-svgs && webpack --mode development --watch --progress"
     },
