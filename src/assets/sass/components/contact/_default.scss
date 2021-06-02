@@ -43,3 +43,16 @@
   white-space: nowrap;
 }
 
+#js-form-message {
+  @extend .absolute,
+  .opacity-0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+
+  will-change: opacity, visibility;
+}
+
+#js-form-message.visible {
+  @extend .opacity-1;
+  visibility: visible;
+}

@@ -19,3 +19,41 @@
   animation-duration: 0.8s;
   animation-delay: 0.2s;
 }
+
+.speakers__date {
+  @extend .relative,
+  .margin-top-20,
+  .color-cloudburst,
+  .font-sofia-bold;
+  @include rem2px(font-size, 1.6);
+
+  @include mq(s) {
+    @extend .s-relative;
+  }
+}
+
+.speakers__time {
+  @extend .absolute,
+  .overflow-hidden,
+  .flex,
+  .align-items-center;
+  text-indent: 20px;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  height: 34px;
+}
+
+.speakers__time svg {
+  @extend .margin-right-5,
+  .margin-left-10;
+  width: 30px;
+}
+
+.speakers__time svg circle {
+  fill: transparent !important;
+}
+
+.speakers__time svg path {
+  fill: $cloudburst !important;
+}

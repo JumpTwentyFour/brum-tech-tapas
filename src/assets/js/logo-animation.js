@@ -9,6 +9,8 @@ export default class LogoAnimation {
 
   animContainer = document.getElementById('about__image');
 
+  isRunning = false;
+
   init = () => {
     if (this.animContainer.length !== null) {
       this.setupListener();
@@ -22,15 +24,15 @@ export default class LogoAnimation {
       loop: false,
       autoplay: true,
       animationData: animationJson,
-
     });
+    this.isRunning = true;
   };
 
   setupListener = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.intersectionRatio > 0.2) {
-          this.loadAnimation();
+        if (entry.intersectionRatio > 0.2 && !this.isRunning) {
+            this.loadAnimation();
         }
       });
     });

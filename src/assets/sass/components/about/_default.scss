@@ -21,10 +21,14 @@
 
 .about__image {
   @extend .inline-flex,
+  .flex-col,
   .align-self-center,
   .align-items-center;
 }
 
 .about__image svg {
   width: 100%;
+}
+.about__copy p a {
+  text-decoration: underline;
 }
