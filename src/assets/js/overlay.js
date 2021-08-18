@@ -8,7 +8,7 @@ export default class Overlay {
   offsetY = window.pageYOffset;
 
   init = () => {
-    //this.attachOpenClickHandler('.speakers__item');
+    this.attachOpenClickHandler('.js-speakers__item');
   };
 
   attachOpenClickHandler = (className) => {
